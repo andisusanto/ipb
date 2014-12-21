@@ -1,0 +1,144 @@
+/* CSS Document */
+body{ margin:0; padding:0;}
+.skdslider{
+ height: 385px;
+ position: relative;
+}
+.skdslider ul.slides{ margin:0; padding:0; list-style-type:none;}
+
+.skdslider ul.slides li
+{
+   height: 385px;
+   left: 0;
+   position: absolute;
+   top: 0;
+   display: none;
+   width:100%;
+}
+.skdslider ul.slides li img{
+    width: 100%;
+	height:100%;
+	border:0;
+}
+
+.skdslider .slide-navs {
+    bottom: 20px;
+    left: 50%;
+    position: absolute;
+	list-style-type: none;
+	 margin: 0;
+    padding: 0;
+}
+
+
+.skdslider .slide-navs li {
+    float: left;
+	background: url("image/slide-bg.png") no-repeat scroll 0 0 transparent;
+	height:12px;
+	width:12px;
+	margin-right:4px;
+	cursor:pointer;
+}
+.skdslider .slide-navs li.current-slide {
+  background: url("image/slide-bg-active.png") no-repeat scroll 0 0 transparent;
+}
+.skdslider .slide-desc {
+    left: 0;
+    padding: 6px 25px 10px 0px;
+    position: absolute;
+    top: 260px;
+    width: 30%;
+}
+.skdslider .slide-desc > h2 {
+    color: #FFF;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size: 15px;
+    background: #000;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+
+.skdslider .slide-desc > p {
+    color: #FFFFFF;
+    background: #b90103;
+    font-family: 'Oswald';
+    font-size: 16px;
+    margin: 0;
+    line-height: 20px;
+}
+
+.skdslider .slide-desc > p a {
+	color:#FFF;
+	font:12px "myriad Pro";
+	text-decoration: none;
+	padding:5px 20px 10px;
+
+}
+
+.skdslider .slide-desc > p a.more {
+    color:#990000;
+	font-size:20px;
+    float: right;
+    height: 18px;
+    width: 22px;
+	text-decoration:none;
+}
+.skdslider .slide-desc > p a.more:hover {
+text-decoration:underline;
+}
+
+.skdslider a.prev{
+    background: url("image/left.png") no-repeat scroll 0 0 transparent;
+	width:35px;
+	height:35px;
+	display:block;
+	cursor:pointer;
+	position:absolute;
+	top:44%;
+	left:2%;
+	
+}
+
+.skdslider a.next{
+    background: url("image/right.png") no-repeat scroll 0 0 transparent;
+	width:35px;
+	height:35px;
+	display:block;
+	cursor:pointer;
+	position:absolute;
+	top:44%;
+	right:2%;
+	
+}
+.skdslider a.prev:hover{
+  
+}
+.skdslider a.next:hover{
+  
+}
+
+.skdslider a.play{
+    background: url("image/play.png") no-repeat scroll center center transparent;
+	width:35px;
+	height:35px;
+	display:none;
+	cursor:pointer;
+	position:absolute;
+	top:44%;
+	left:48%;
+	
+}
+
+.skdslider a.pause{
+    background: url("image/pause.png") no-repeat scroll center center transparent;
+	width:35px;
+	height:35px;
+	display:none;
+	cursor:pointer;
+	position:absolute;
+	top:44%;
+	left:48%;
+	
+}

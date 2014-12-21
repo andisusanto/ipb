@@ -1,0 +1,990 @@
+html, body { margin:0; padding:0; height:100%;}
+
+@font-face {
+font-family: 'Myriad Pro';
+src: local('Myriad Pro Regular'), url('../fonts/MYRIADPRO-REGULAR.woff') format('woff');
+}
+
+.container{
+	width: 100%;
+	height: auto;
+	padding-bottom: 125px;
+}
+
+.header{
+	width: 1000px;
+	margin: 0 auto;
+    height: 120px;
+}
+
+.row{
+	clear: both;
+}
+
+.top_header{
+	width: 100%;
+	height: 35px;
+	border-bottom: 1px solid #343a3b;
+}
+
+.logo_area{
+	width: 25%;
+	float: left;
+	margin: 30px 0 12px;
+}
+
+.logo_area img {
+	width: 90%;
+}
+
+.navigation{
+	width: 75%;
+	height: 50px;
+	float: right;
+	margin: 25px 0 12px;
+	background: url('../images/nav_bg.png') repeat ;
+}
+
+.navigation ul { 
+	list-style-type: none; 
+	float:left; 
+	padding-left: 10px;
+}
+
+.navigation li { 
+	float: left; 
+}
+
+.navigation ul a:link, .navigation ul a:visited {
+	font:13px 'Myriad Pro', sans-serif; 
+	color: #FFF; 
+	text-decoration: none;	
+	padding:18px 19px 15px;
+	/*
+	before change to indonesian text
+	padding : 18px 15px 15px*/
+}
+
+.navigation ul a:hover {
+	background: #b90103
+}
+
+.home #home, .new_property #new_property, .secondary_property #secondary_property, .rent_property #rent_property, .land_for_sale #land_for_sale, .news_page #news_page, .contact_us #contact_us {
+	background: #b90103
+}
+
+.content {
+	width: 1000px;
+	margin: 0 auto;
+    clear:both;
+}
+
+.banner_container {width: 75%}
+
+.banner{
+	width: 100%;
+	height: 385px;
+	float: left;
+	margin-right: 1%;
+}
+
+.left {float: left;}
+.right {float: right;}
+
+.home_search_container {
+	width: 24%;
+	float: left;
+}
+
+.search_form{
+	width: 100%;
+	height: 385px;
+	float: left;
+}
+
+.search_form_container {
+	width: 100%; height: 385px;
+	float: right;
+	border: 1px solid #CCC;
+}
+
+.search_form_header .title {
+	height: 20px;
+	background: #b90103;
+	width: 75%;
+	padding: 14px 3px;
+	font: 15px "Arial";
+	font-weight: bold;
+	color: #FFF;
+	float: left;
+	margin-bottom: 10px;
+}
+
+.search_form_header .search_icon {
+	width: 10%;
+	height: 20px;
+	padding: 14px 15px;
+	float: left;
+	background: url("../images/search_symbol.png") no-repeat center #252a2b;
+}
+
+.search_form_container .search_component, .search_form_container .search_component select {
+	width: 220px;
+	height: 35px;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.search_form_container .search_component input[type=submit] {
+	width: 95px; height: 35px;
+	background: #b90103;
+	border: none; font-weight: bold;
+	color: #FFF; font:18px "Arial";
+}
+
+.search_form_container .search_component {
+	margin: 0px auto;
+	padding: 9px 0px;
+}
+
+.new_launching {
+	width: 100%;
+	background: url(../images/new_launching.png) no-repeat;
+	height: 260px;
+	margin-top: 400px;
+}
+
+.new_launching_container {
+	padding-top: 60px;
+	width: 85%;
+	margin-left: 100px;
+}
+
+.new_launching_title {
+	width: 80px; height: 15px;
+	background: #b90103;
+	color: #FFF;
+	padding: 5px 5px;
+	font:12px "Arial";
+	margin-top: -25px;
+	position: absolute;
+	font-weight: bold;
+	z-index: 4;
+}
+
+.new_launching_detail {
+	width: 180px;
+	height: 15px;
+	border-top: 1px solid #b90103;
+	background: #FFF;
+	font:11px "arial";
+	padding: 7px 5px;
+	font-weight: bold;
+}
+
+.new_launching_detail .price {
+	width: 62%;
+	float:left;
+}
+
+.new_launching_detail .bedroom, .new_launching_detail .bathroom {
+	width: 19%;
+	float:left;
+}
+
+.new_launching_detail .bedroom img, .new_launching_detail .bathroom img {
+	float: left;
+}
+
+.description {padding:20px 0;}
+
+.slick-prev {width: 100px;}
+
+.pagination {
+	height: 530px;
+	margin:20px 30px;
+
+}
+
+.pagination .title {
+	font:20px "arial";
+	font-weight: bold;
+	color: #b90103;
+	float: left
+}
+
+.pagination .tabs {
+	float: right;
+}
+
+.pagination .tabs ul {
+	list-style-type: none; 
+	float:left; 
+}
+
+.pagination .tabs li {
+	float: left;
+}
+
+.pagination .tabs ul a:link, .pagination .tabs ul a:visited {
+	font:13px 'Myriad Pro', sans-serif; 
+	color: #586162; 
+	background: #eaeaea;
+	text-decoration: none;	
+	padding:10px 15px;
+}
+
+.pagination .tabs ul a:hover {
+	background: #b90103;
+	color: #FFF
+}
+
+.pagination_tabs_item{
+	float: left;
+	width: 22%;
+	padding: 20px 14px 0;
+}
+
+.pagination_tabs_item .title {
+	width: 180px; height: 15px;
+	background: #b90103;
+	color: #FFF;
+	padding: 5px 5px;
+	font:12px "Arial";
+	margin-top: -25px;
+	position: absolute;
+	font-weight: bold;
+	text-align: center;
+	z-index: 4;
+}
+
+.pagination_tabs_item .detail {
+	width: 180px;
+	height: 15px;
+	border-top: 1px solid #b90103;
+	background: #DEDEDE;
+	font:11px "arial";
+	padding: 7px 5px;
+	font-weight: bold;
+}
+
+.pagination_tabs_item .price {
+	width: 62%;
+	float:left;
+}
+
+.pagination_tabs_item .bedroom, .pagination_tabs_item .bathroom {
+	width: 19%;
+	float:left;
+}
+
+.pagination_tabs_item .bedroom img, .pagination_tabs_item .bathroom img {
+	float: left;
+}
+
+
+.paginate {
+	padding: 0px;
+	margin: 0px;
+	height: 30px;
+	display: block;
+	margin-top: -60px;
+	margin-bottom: 50px;
+	text-align: center;
+	font: 12px "Arial";
+}
+.paginate li {
+	display: inline-block;
+	list-style: none;
+	padding: 0px;
+	margin-right: 5px;
+	width: 30px;
+	text-align: center;
+	background: #DEDEDE;
+	line-height: 25px;
+}
+.paginate .active {
+	display: inline-block;
+	list-style: none;
+	padding: 0px;
+	color:#FFF;
+	margin-right: 1px;
+	width: 30px;
+	text-align: center;
+	line-height: 25px;
+	background-color: #b90103;
+}
+.paginate li a{
+	color:#000;
+	text-decoration:none;
+}
+
+.news {
+	font: 12px "Arial";
+	width: 70%;
+	height: 460px;
+	float: left;
+}
+
+.main_news {
+	height: 250px;
+	background: #FFF;
+}
+
+.main_news .title {
+	color: #e54e53;
+	font-size: 20px;
+}
+
+.main_news img {
+	width: 100%;
+	height: 170px;
+}
+
+.news_list {
+	float: left;
+	width: 48%;
+	height: 70px;
+	margin: 10px 10px 5px 0px;
+}
+
+.news_list_img {float: left}
+.news_list_img img {
+	width: 70px;
+	height: 70px;
+	padding-right: 10px;
+}
+
+.news_list_detail .title {
+	color: #e54e53;
+	font-size: 17px;
+}
+
+.advertisement {
+	width: 30%;
+	height: 460px;
+	float: right;
+}
+
+.advertisement .row {
+	clear: both;
+	float: right;
+	margin-bottom:20px;
+}
+
+.advertisement img {
+	width: 240px; height: 200px
+}
+
+.map {
+	margin: 20px 0px;
+	display: inline-block;
+}
+
+.map img {
+	width: 240px; height: 170px
+}
+
+.featured_property {
+	float: left;
+	width: 100%;
+	margin: 0 0 10px;
+	height: 440px;
+	border:1px solid #b90103;
+}
+
+.featured_property .title {
+	height: 20px;
+	background: #b90103;
+	width: 90%;
+	padding: 14px 12px;
+	font: 20px "Arial";
+	font-weight: bold;
+	color: #FFF;
+	float: left;
+	margin-bottom: 10px;
+    
+}
+
+.featured_property_container {
+	width: 100%;
+	margin-top: 60px;
+}
+
+.featured_property_item {
+	border:1px solid #b90103;
+	width: 95%;
+	margin: 15px auto;
+	height: 110px;
+}
+
+.featured_property_item .image {
+	float: left;
+	width: 100px;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.featured_property_item .image img {
+	width: 90px;
+	height: 65px;
+}
+
+.red_tag {
+	float: left;
+	text-align: center;
+	background: #b90103;
+	padding: 5px 10px;
+	margin-bottom: 5px;
+	width: 40%;
+	color: #FFF;
+	font-weight: bold;
+	font:11px "arial";
+	margin-top: 10px;
+}
+
+.featured_property_item .price {
+    margin-top: 5px;
+}
+
+.featured_property_item .title {
+	float: left;
+	width: 50%;
+	padding: 0;
+	margin: 0;
+    margin-top:10px;
+	font: 12px "Arial";
+	height: auto;
+	background: none;
+	color: #000;
+	text-align: center;
+    font-weight: bold;
+}
+
+.featured_property_item .subtitle {
+	float: left;
+	width: 50%;
+	font: 10px "Arial";
+	text-align: center;
+}
+
+.featured_property_item .detail {
+	width: 92%;
+	float: left;
+	margin: 5px 0px;
+	padding: 5px 10px;
+	font: 13px "arial";
+	border-top: 1px solid #b90103;
+}
+
+.featured_property_item .area {
+	width: 50%;
+	float: left;
+}
+
+.featured_property_item .bedroom, .featured_property_item .bathroom {
+	width: 25%;
+	float:left;
+}
+
+.featured_property_item .bedroom img, .featured_property_item .bathroom img, .featured_property_item .area img {
+	float: left;
+}
+
+.property_listing .title{
+	height: 20px;
+	background: #b90103;
+	width: 25%;
+	padding: 14px 12px;
+	font: 20px "Arial";
+	font-weight: bold;
+	color: #FFF;
+}
+
+.property_listing_container {
+	border: 1px solid #dedede;
+	width: 100%;
+	height: 1370px;
+	margin-bottom: 10px;
+}
+
+.property_listing_detail {
+	border: 1px solid #dedede;
+	width: 90%;
+	padding: 10px 20px;
+	margin:15px auto;
+	height: 180px;
+}
+
+.property_listing_detail .title {
+	font:18px "Myriad Pro";
+	background: none;
+	margin:0px; padding:0;
+	color: #000;
+    width:100%;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.property_listing_detail .image, .property_listing_detail .image img {
+	float: left;
+	width: 185px;
+	height: 125px;
+}
+
+.property_listing_detail .price {
+	background: #b90103;
+	font: 15px "Arial";
+	color: #FFF;
+	padding: 5px 10px;
+	float: left;
+	width: 69%;
+}
+
+.property_listing_detail .description {
+	padding: 10px;
+	font: 12px "arial";
+	width: 69%;
+	text-align: justify;
+	float: left;
+}
+
+.more_detail_link {
+	float: left;
+	padding:0 10px;
+}
+
+.more_detail_link a:link, .more_detail_link a:visited {
+	font: 15px "Arial";
+	color: #b90103;
+	text-decoration: none;
+}
+
+.property_listing_detail .detail {
+	clear: both;
+	font: 13px "arial";
+	padding:10px 0;
+}
+
+.property_listing_detail .area {
+	float: left;
+	width: 20%
+}
+
+.property_listing_detail .bedroom, .property_listing_detail .bathroom{
+	float: left;
+	width: 10%
+}
+
+.property_listing_detail .bedroom img, .property_listing_detail .bathroom img, .property_listing_detail .area img {
+	float: left;
+}
+
+.marketing {
+	width: 47%;
+	float: left;
+	padding: 12px 10px
+}
+
+.marketing .image, .marketing .image img {
+	float: left;
+	width: 95px;
+	height: 100px;
+}
+
+.marketing .name, .marketing .telp, .marketing .email {
+	font: 20px "Arial";
+	width: 200px;
+	font-weight: bold;
+	float: left;
+	padding: 5px 10px;
+}
+
+.marketing .telp, .marketing .email { 
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.marketing .email { text-decoration: underline; }
+
+.marketing .telp img, .marketing .email img {
+	float: left;
+}
+
+.fixed_banner, .fixed_banner img {
+	width: 100%;
+	margin-top: -10px;
+}
+
+.company {
+	margin:10px 0;
+}
+
+.company .title {
+	font: 20px "Arial";
+	font-weight: bold;
+	color: #b90103;
+}
+
+.company .image, .company .image img {
+	width: 165px; height: 75px;
+
+}
+
+.company .name {
+	font: 20px "Arial";
+	font-weight: bold;
+	margin: 10px 0;
+}
+
+.company .telp , .company .address  {
+	float: left;
+	font-family: "Arial"
+}
+
+.company .telp img, .company .address img { margin-top: 5px }
+
+.related_property {
+	width: 95%;
+	height: 295px;
+	padding: 15px 49px;
+	padding-right: 0px;
+	border:1px solid #b90103;
+	margin-bottom: 20px;
+	font:12px "Arial";
+}
+
+.related_property .title {
+	font-size: 20px;
+	font-weight: bold;
+	margin: 5px 0;
+}
+
+.related_property .subtitle {
+	font-size: 15px;
+	margin: 5px 0;
+	color: #b90103;
+}
+
+.related_property_container {
+	padding: 20px 0;
+	width: 100%;
+}
+
+
+.related_property_title {
+	width: 180px; height: 15px;
+	padding: 5px 5px;
+	font:15px "Arial";
+	font-weight: bold;
+}
+
+.related_property_detail {
+	width: 190px;
+	height: 15px;
+	background: #FFF;
+	font:12px "arial";
+	padding: 7px 5px;
+	font-weight: bold;
+}
+
+.related_property_detail .price {
+	width: 62%;
+	float:left;
+}
+
+.related_property_detail .bedroom, .related_property_detail .bathroom {
+	width: 19%;
+	float:left;
+}
+
+.related_property_detail .bedroom img, .related_property_detail .bathroom img {
+	float: left;
+}
+
+.property_detail {
+	height: 30px;
+	background: #DEDEDE;
+	font-weight: bold;
+	font:17px "Myriad Pro";
+	
+}
+
+.property_detail .title {
+	float: left;
+	padding: 5px 10px;
+}
+
+.property_detail .price {background: #d40204}
+.property_detail .category {background: #000}
+
+.property_detail .price, .property_detail .category {
+	float: right;
+	width:auto;
+    padding: 5px 10px;
+    color: #FFF;
+    padding-right: 20px;
+   	position: relative; 
+}
+
+.property_detail .price:before {
+	content: "";  
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-right: 10px solid #d40204;
+	position: absolute; left: -10px; top: 0;
+	z-index: 100;
+}
+
+ .property_detail .category:before {
+	content: "";  
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-right: 10px solid #000;
+	position: absolute; left: -10px; top: 0;
+}
+
+.property_detail_2 {
+	font:14px "Myriad Pro";
+	margin-top: 10px;
+	width: 100%;
+	border: 1px solid #000;
+	height: 30px;
+}
+
+.property_detail_2 img {margin-top:2px;}
+
+.property_detail_2 .area, .property_detail_2 .bedroom, .property_detail_2 .bathroom {
+	float: left;
+	vertical-align: top;
+	padding: 5px 10px;
+	height: 20px;
+	border-right: 1px solid #000;
+}
+
+.property_detail_2 .print {
+	float: right;
+	padding: 5px 10px;
+	vertical-align: top;
+	height: 20px;
+	border-left: 1px solid #000;
+	cursor: pointer`}
+
+.property_description {
+	font: 14px "Myriad Pro";
+	text-align: justify;
+}
+
+.property_description .map {
+	width: 60%;
+	float: left;
+}
+
+.property_description .title {
+	color: #b90103;
+	font-size: 20px;
+}
+
+.property_description .map img {
+	width:420px; height:260px;
+	margin-top:10px
+}
+
+.specification {
+	width: 38%;
+	float: left;
+}
+
+.specification .title {
+	color: #b90103;
+	font-size: 20px;
+}
+
+.specification .item {overflow: hidden; padding: 8px 0; border-bottom: 2px solid #e3e2e2; border-top: 2px solid #fdfdfd}
+.specification .item div {float: left}
+
+.facility {
+	width: 100%;
+	border: 1px solid #b90103;
+	margin-bottom: 20px;
+	overflow: hidden;
+	padding-bottom: 10px;
+}
+
+.facility .title {
+	background: #b90103;
+	color: #FFF;
+	padding: 5px 10px;
+}
+
+.facility ul li {
+	width: 50%;
+	float: left;
+	margin:5px 0;
+}
+
+.property_marketing {
+	width: 100%;
+	float: left;
+	padding: 12px 10px
+}
+
+.property_marketing .image, .property_marketing .image img {
+	float: left;
+	width: 70px;
+	height: 70px;
+}
+
+.property_marketing .name, .property_marketing .telp, .property_marketing .email {
+	font: 18px "Arial";
+	width: 64%;
+	font-weight: bold;
+	float: left;
+	padding: 0px 5px 5px;
+}
+
+.property_marketing .telp, .property_marketing .email { 
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.property_marketing .email { text-decoration: underline; }
+
+.property_marketing .telp img, .property_marketing .email img {
+	float: left;
+}
+
+.marketing_title { font: 18px "Arial";font-weight: bold;}
+
+.kpr {
+	float: left;
+	width: 100%;
+	font: 12px "Arial";
+	font-weight: bold; 
+	margin-bottom: 20px
+}
+
+.kpr .title {
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+
+.kpr .container {
+	width: 90%;
+	background: #b90103;
+	color: #FFF;
+	padding: 13px;
+}
+
+.kpr .label, .kpr .component {
+	margin-bottom: 5px;	
+}
+
+.component input[type=text] {
+	padding: 5px;
+	border: 0px;
+	border-radius: 2px;	
+}
+
+.container input[type=button] {
+	padding: 5px;
+	width: 50%;
+	border: 1px solid #f59678;
+	margin: 10px 0;
+	border-radius: 2px;	
+	color: #FFF;
+	border: 0px;
+	margin-left: 25%;
+	font: 12px "Arial";
+	background: #f59678
+}
+
+.kpr .total {
+	width: 95%;
+	text-align: center;
+	background: #dc1819;
+	border: 2px solid #de2325;
+	border-radius: 5px;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
+
+/* Begin sticky footer CSS */
+
+#wrap {min-height: 100%;}
+
+#main {
+	overflow:auto;
+	height:auto;
+	padding-bottom: 125px;
+}  /* must be same height as the footer */
+
+#footer {
+	position: relative;
+	background: url(../images/footer_bg.png) repeat;
+	margin-top: -125px; /* negative value of footer height */
+	height: 125px;
+	clear:both;
+} 
+
+/*Opera Fix*/
+body:before {/* thanks to Maleika (Kohoutec)*/
+
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+}
+
+/* End of sticky footer CSS */
+
+.footer_container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.footer_navigation{
+	width: 100%;
+	height: 50px;
+	border-top: 8px solid #b90103
+}
+
+.footer_navigation ul { 
+	list-style-type: none; 
+	float:left; 
+	padding-left: 17px;
+}
+
+.footer_navigation li { 
+	float: left; 
+}
+
+.footer_navigation ul a:link, .footer_navigation ul a:visited {
+	font:14px 'Myriad Pro', sans-serif; 
+	color: #FFF; 
+	text-decoration: none;	
+	padding:19px 27px 10px;
+	/*padding:19px 28px 15px;*/
+	
+}
+
+.footer_navigation ul a:hover {
+	background: #b90103
+}
+
+.copyright {
+	font: 13px "Arial";
+	color: #CCC;
+	float: left;
+	width: 70%;
+	margin-top:35px ;
+	font-style: italic;
+}
+
+.footer_logo {
+	float: left;
+	width: 30%;
+	margin-top: 5px;
+}

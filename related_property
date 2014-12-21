@@ -1,0 +1,62 @@
+<div class="row related_property">
+					<div class="row title">Related Properties</div>
+					<div class="row subtitle">Look at our Latest listed properties and check out the facilities on them, We have already sold more than 50,000 Homes.</div>
+					<div class="related_property_container">
+						
+						<div>
+							<img src="images/banners/banner01.jpg" width="190" height="150">
+							<div class="related_property_title">Royal Grande</div>
+							<div class="related_property_detail">
+								<div class="price">Rp. 2.000.000.000</div>
+								<div class="bedroom"><img src="images/bedroom_symbol.png"> 2</div>
+								<div class="bathroom"><img src="images/bathroom_symbol.png"> 3</div>
+							</div>
+						</div>
+						<div>
+							<img src="images/banners/banner01.jpg" width="190" height="150">
+							<div class="related_property_title">Royal Grande</div>
+							<div class="related_property_detail">
+								<div class="price">Rp. 2.000.000.000</div>
+								<div class="bedroom"><img src="images/bedroom_symbol.png"> 2</div>
+								<div class="bathroom"><img src="images/bathroom_symbol.png"> 3</div>
+							</div>
+						</div>
+						<div>
+							<img src="images/banners/banner01.jpg" width="190" height="150">
+							<div class="related_property_title">Royal Grande</div>
+							<div class="related_property_detail">
+								<div class="price">Rp. 2.000.000.000</div>
+								<div class="bedroom"><img src="images/bedroom_symbol.png"> 2</div>
+								<div class="bathroom"><img src="images/bathroom_symbol.png"> 3</div>
+							</div>
+						</div>
+						<div>
+							<img src="images/banners/banner01.jpg" width="190" height="150">
+							<div class="related_property_title">Royal Grande</div>
+							<div class="related_property_detail">
+								<div class="price">Rp. 2.000.000.000</div>
+								<div class="bedroom"><img src="images/bedroom_symbol.png"> 2</div>
+								<div class="bathroom"><img src="images/bathroom_symbol.png"> 3</div>
+							</div>
+						</div>
+						<div>
+							<img src="images/banners/banner01.jpg" width="190" height="150">
+							<div class="related_property_title">Royal Grande</div>
+							<div class="related_property_detail">
+								<div class="price">Rp. 2.000.000.000</div>
+								<div class="bedroom"><img src="images/bedroom_symbol.png"> 2</div>
+								<div class="bathroom"><img src="images/bathroom_symbol.png"> 3</div>
+							</div>
+						</div>
+						<div>
+							<img src="images/banners/banner01.jpg" width="190" height="150">
+							<div class="related_property_title">Royal Grande</div>
+							<div class="related_property_detail">
+								<div class="price">Rp. 2.000.000.000</div>
+								<div class="bedroom"><img src="images/bedroom_symbol.png"> 2</div>
+								<div class="bathroom"><img src="images/bathroom_symbol.png"> 3</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
