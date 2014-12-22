@@ -7,8 +7,7 @@ include_once('admin-panel/Classes/NewPropertyMarketing.php');
 include_once('admin-panel/Classes/NewPropertyFacility.php');
 include_once('admin-panel/Classes/User.php');
 
-session_start();
-include_once('languages/'.$_SESSION['Language'].'.php');
+include('checklanguage.php');
 
 $NewPropertyId = $_GET['Id'];
 ?>
@@ -188,8 +187,8 @@ $NewPropertyId = $_GET['Id'];
 						?>
 
 						<?php 
-							$_GET['cat'] = '0';
-							@include("featured.php"); 
+							//$_GET['cat'] = '0';
+							//@include("featured.php"); 
 						?>
 
 					</div> <!-- Close right -->
@@ -198,7 +197,7 @@ $NewPropertyId = $_GET['Id'];
 
 				<?php 
 					$_GET['cat'] = '0';
-					@include("related_property.php"); 
+					@include("featured_property.php"); 
 				?>
 
 			</div> <!-- Close content -->

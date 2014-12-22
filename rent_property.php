@@ -4,9 +4,7 @@ include_once('admin-panel/Classes/RentProperty.php');
 include_once('admin-panel/Classes/RentPropertyImage.php');
 include_once('admin-panel/Classes/User.php');
 
-session_start();
-include_once('languages/'.$_SESSION['Language'].'.php');
-
+include('checklanguage.php');
 $RentPropertyId = $_GET['Id'];
 ?>
 
@@ -158,9 +156,9 @@ $RentPropertyId = $_GET['Id'];
 						?>
 
 						<?php 
-							$_GET['cat'] = '2';
-							$_GET['userid'] = $UserId;
-							@include("featured.php"); 
+							//$_GET['cat'] = '2';
+							//$_GET['userid'] = $UserId;
+							//@include("featured.php"); 
 						?>
 
 					</div> <!-- Close right -->
@@ -169,7 +167,7 @@ $RentPropertyId = $_GET['Id'];
 
 				<?php 
 					$_GET['cat'] = '2';
-					@include("related_property.php"); 
+					@include("featured_property.php"); 
 				?>
 
 			</div> <!-- Close content -->

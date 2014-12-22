@@ -4,8 +4,7 @@ include_once('admin-panel/Classes/User.php');
 include_once('admin-panel/Classes/SecondaryProperty.php');
 include_once('admin-panel/Classes/SecondaryPropertyImage.php');
 
-session_start();
-include_once('languages/'.$_SESSION['Language'].'.php');
+include('checklanguage.php');
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +92,7 @@ include_once('languages/'.$_SESSION['Language'].'.php');
 
 				<?php 
 					$_GET['cat'] = '4';
-					@include("related_property.php"); 
+					@include("featured_property.php"); 
 				?>
 
 			</div> <!-- Close content -->

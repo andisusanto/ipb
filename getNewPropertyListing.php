@@ -11,7 +11,7 @@ if(!is_numeric($page_number)){die('Invalid page number!');}
 
 								foreach($NewPropertys as $NewProperty){
 									echo '<div class="property_listing_detail">';
-									echo '<div class="title">'.$NewProperty->Title.'</div>';
+									echo '<div class="title"><a href="new_property.php?Id='.$NewProperty->get_Id().'">'.$NewProperty->Title.'</a></div>';
 									$NewPropertyImages = NewPropertyImage::LoadCollection($Conn, "Active = 1 AND NewProperty =". $NewProperty->get_Id(), "", 1, 1);
 									foreach ($NewPropertyImages as $NewPropertyImage) {
 										echo '<div class="image"><a href="new_property.php?Id='.$NewProperty->get_Id().'"><img src="img.php?src=NewPropertys/'.$NewPropertyImage->ImageName.'&w=300"></a></div>';

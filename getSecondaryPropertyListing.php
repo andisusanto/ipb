@@ -10,7 +10,7 @@ $Conn = Connection::get_DefaultConnection();
 $SecondaryPropertys = SecondaryProperty::LoadCollection($Conn, "Active = 1", "Id DESC", $page_number, 6);
 foreach($SecondaryPropertys as $SecondaryProperty){
 	echo '<div class="property_listing_detail">';
-	echo '<div class="title">'.$SecondaryProperty->Title.'</div>';
+	echo '<div class="title"><a href="secondary_property.php?Id='.$SecondaryProperty->get_Id().'">'.$SecondaryProperty->Title.'</a></div>';
 	$SecondaryPropertyImages = SecondaryPropertyImage::LoadCollection($Conn, "Active = 1 AND SecondaryProperty =". $SecondaryProperty->get_Id(), "", 1, 1);
 	foreach ($SecondaryPropertyImages as $SecondaryPropertyImage) {
 		echo '<div class="image"><a href="secondary_property.php?Id='.$SecondaryProperty->get_Id().'"><img src="img.php?src=SecondaryPropertys/'.$SecondaryPropertyImage->ImageName.'&w=300"></a></div>';

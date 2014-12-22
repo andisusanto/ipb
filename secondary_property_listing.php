@@ -4,8 +4,7 @@ include_once('admin-panel/Classes/Currency.php');
 include_once('admin-panel/Classes/SecondaryProperty.php');
 include_once('admin-panel/Classes/SecondaryPropertyImage.php');
 
-session_start();
-include_once('languages/'.$_SESSION['Language'].'.php');
+include('checklanguage.php');
 ?>
 
 <!DOCTYPE html>
@@ -37,8 +36,8 @@ include_once('languages/'.$_SESSION['Language'].'.php');
 						<div class="row">&nbsp;</div> <!-- empty row space -->
 
 						<?php 
-							$_GET['cat'] = '1';
-							@include("featured.php"); 
+							//$_GET['cat'] = '1';
+							//@include("featured.php"); 
 						?>
 
 						<div class="advertisement">

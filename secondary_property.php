@@ -4,8 +4,7 @@ include_once('admin-panel/Classes/SecondaryProperty.php');
 include_once('admin-panel/Classes/SecondaryPropertyImage.php');
 include_once('admin-panel/Classes/User.php');
 
-session_start();
-include_once('languages/'.$_SESSION['Language'].'.php');
+include('checklanguage.php');
 $SecondaryPropertyId = $_GET['Id'];
 ?>
 

@@ -307,10 +307,22 @@ src: local('Myriad Pro Regular'), url('../fonts/MYRIADPRO-REGULAR.woff') format(
 	margin-right: 5px;
 	width: 30px;
 	text-align: center;
+	
+	line-height: 25px;
+}
+.paginate li a:link, .paginate li a:visited{
+	color:#000;
+	text-decoration:none;
+	display: inline-block;
+	list-style: none;
+	padding: 0px;
+	margin-right: 5px;
+	width: 30px;
+	text-align: center;
 	background: #DEDEDE;
 	line-height: 25px;
 }
-.paginate .active {
+.paginate li a.active {
 	display: inline-block;
 	list-style: none;
 	padding: 0px;
@@ -321,11 +333,6 @@ src: local('Myriad Pro Regular'), url('../fonts/MYRIADPRO-REGULAR.woff') format(
 	line-height: 25px;
 	background-color: #b90103;
 }
-.paginate li a{
-	color:#000;
-	text-decoration:none;
-}
-
 .news {
 	font: 12px "Arial";
 	width: 70%;
@@ -498,6 +505,10 @@ src: local('Myriad Pro Regular'), url('../fonts/MYRIADPRO-REGULAR.woff') format(
 	float: left;
 }
 */
+.property_listing a:link, .property_listing a:visited, .property_listing a:hover {
+	text-decoration: none;
+	color: #000;
+}
 .property_listing .title{
 	height: 20px;
 	background: #b90103;

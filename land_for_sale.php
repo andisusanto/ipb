@@ -4,9 +4,7 @@ include_once('admin-panel/Classes/Land.php');
 include_once('admin-panel/Classes/LandImage.php');
 include_once('admin-panel/Classes/User.php');
 
-session_start();
-include_once('languages/'.$_SESSION['Language'].'.php');
-
+include('checklanguage.php');
 $LandId = $_GET['Id'];
 ?>
 
@@ -157,9 +155,9 @@ $LandId = $_GET['Id'];
 						?>
 					
 						<?php 
-							$_GET['cat'] = '3';
-							$_GET['userid'] = $UserId;
-							@include("featured.php"); 
+							//$_GET['cat'] = '3';
+							//$_GET['userid'] = $UserId;
+							//@include("featured.php"); 
 						?>
 
 					</div> <!-- Close right -->
@@ -168,7 +166,7 @@ $LandId = $_GET['Id'];
 
 				<?php 
 					$_GET['cat'] = '3';
-					@include("related_property.php"); 
+					@include("featured_property.php"); 
 				?>
 
 			</div> <!-- Close content -->

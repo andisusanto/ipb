@@ -1,7 +1,5 @@
 <?php
-
-session_start();
-include_once('languages/'.$_SESSION['Language'].'.php');
+include('checklanguage.php');
 ?><!DOCTYPE html>
 <html>
 	<head>

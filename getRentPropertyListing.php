@@ -10,7 +10,7 @@ $Conn = Connection::get_DefaultConnection();
 $RentPropertys = RentProperty::LoadCollection($Conn, "Active = 1", "Id DESC", $page_number, 6);
 foreach($RentPropertys as $RentProperty){
 									echo '<div class="property_listing_detail">';
-									echo '<div class="title">'.$RentProperty->Title.'</div>';
+									echo '<div class="title"><a href="rent_property.php?Id='.$RentProperty->get_Id().'">'.$RentProperty->Title.'</a></div>';
 									$RentPropertyImages = RentPropertyImage::LoadCollection($Conn, "Active = 1 AND RentProperty =". $RentProperty->get_Id(), "", 1, 1);
 									foreach ($RentPropertyImages as $RentPropertyImage) {
 										echo '<div class="image"><a href="rent_property.php?Id='.$RentProperty->get_Id().'"><img src="img.php?src=RentPropertys/'.$RentPropertyImage->ImageName.'&w=300"></a></div>';

@@ -10,7 +10,7 @@ $Conn = Connection::get_DefaultConnection();
 $Lands = Land::LoadCollection($Conn, "Active = 1", "Id DESC", $page_number, 6);
 foreach($Lands as $Land){
 									echo '<div class="property_listing_detail">';
-									echo '<div class="title">'.$Land->Title.'</div>';
+									echo '<div class="title"><a href="land_for_sale.php?Id='.$Land->get_Id().'">'.$Land->Title.'</a></div>';
 									$LandImages = LandImage::LoadCollection($Conn, "Active = 1 AND Land =". $Land->get_Id(), "", 1, 1);
 									foreach ($LandImages as $LandImage) {
 										echo '<div class="image"><a href="land_for_sale.php?Id='.$Land->get_Id().'"><img src="img.php?src=images/Lands/'.$LandImage->ImageName.'&w=300"></a></div>';

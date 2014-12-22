@@ -8,8 +8,7 @@ include_once('admin-panel/Classes/SecondaryPropertyImage.php');
 include_once('admin-panel/Classes/RentProperty.php');
 include_once('admin-panel/Classes/RentPropertyImage.php');
 
-session_start();
-include_once('languages/'.$_SESSION['Language'].'.php');
+include('checklanguage.php');
 
 $Category = $_POST['Category'];
 $Location = $_POST['Location'];
