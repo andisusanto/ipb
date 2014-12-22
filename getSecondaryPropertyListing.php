@@ -26,7 +26,7 @@ foreach($SecondaryPropertys as $SecondaryProperty){
 	echo '<div class="title"><a href="secondary_property.php?Id='.$SecondaryProperty->get_Id().'">'.$SecondaryProperty->Title.'</a></div>';
 	$SecondaryPropertyImages = SecondaryPropertyImage::LoadCollection($Conn, "Active = 1 AND SecondaryProperty =". $SecondaryProperty->get_Id(), "", 1, 1);
 	foreach ($SecondaryPropertyImages as $SecondaryPropertyImage) {
-		echo '<div class="image"><a href="secondary_property.php?Id='.$SecondaryProperty->get_Id().'"><img src="img.php?src=SecondaryPropertys/'.$SecondaryPropertyImage->ImageName.'&w=300"></a></div>';
+		echo '<div class="image loading"><a href="secondary_property.php?Id='.$SecondaryProperty->get_Id().'"><img src="img.php?src=SecondaryPropertys/'.$SecondaryPropertyImage->ImageName.'&w=300"></a></div>';
 	}	
 	$Currency = Currency::GetObjectByKey($Conn, $SecondaryProperty->Currency);	
 	echo '<div class="price">'.$Currency->Symbol.' '.number_format($SecondaryProperty->Price).'</div>';
