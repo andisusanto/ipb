@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+
+session_start();
+include_once('languages/'.$_SESSION['Language'].'.php');
+?><!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -30,4 +34,15 @@
 
 
 	</body>
+	<script type="text/javascript" src="inc/jquery-1.9.1.js"></script>
+	<script type="text/javascript">
+
+		jQuery(document).ready(function(){
+			$(".btnlanguage").click(function(){
+				$("input[name=Language]").val($(this).attr('name'));
+				$("input[name=ReturnURL]").val(document.URL);
+				$("#frmLanguage").submit();
+			});
+		});
+	</script>
 </html>

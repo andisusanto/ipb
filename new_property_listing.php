@@ -4,6 +4,9 @@ include_once('admin-panel/Classes/Currency.php');
 include_once('admin-panel/Classes/NewProperty.php');
 include_once('admin-panel/Classes/NewPropertyImage.php');
 
+session_start();
+include_once('languages/'.$_SESSION['Language'].'.php');
+
 $Conn = Connection::get_DefaultConnection();
 $totalItem = count(NewProperty::LoadCollection($Conn, "Active = 1"));
 ?>
@@ -118,6 +121,11 @@ echo $paginate;
 				$(this).addClass('active'); //add active class to currently clicked element (style purpose)
 				return false; //prevent going to herf link
 			});	
+			$(".btnlanguage").click(function(){
+				$("input[name=Language]").val($(this).attr('name'));
+				$("input[name=ReturnURL]").val(document.URL);
+				$("#frmLanguage").submit();
+			});
 		});
 	</script>
 	</body>

@@ -7,6 +7,9 @@ include_once('admin-panel/Classes/NewPropertyMarketing.php');
 include_once('admin-panel/Classes/NewPropertyFacility.php');
 include_once('admin-panel/Classes/User.php');
 
+session_start();
+include_once('languages/'.$_SESSION['Language'].'.php');
+
 $NewPropertyId = $_GET['Id'];
 ?>
 <!DOCTYPE html>
@@ -220,13 +223,20 @@ $NewPropertyId = $_GET['Id'];
 				'autoStart':true
 			});
 
-			$('.related_property_container').slick({
+			$('.featured_property_container').slick({
 				  slidesToShow: 4,
 				  slidesToScroll: 1,
 				  autoplay: true,
 				  speed: 750
 			});
+			$(".btnlanguage").click(function(){
+				$("input[name=Language]").val($(this).attr('name'));
+				$("input[name=ReturnURL]").val(document.URL);
+				$("#frmLanguage").submit();
+			});
 		});
+
+		
 
 		function myFunction() {
 		    window.print();

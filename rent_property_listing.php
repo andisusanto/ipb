@@ -3,6 +3,9 @@ include_once('admin-panel/Classes/Advertisement.php');
 include_once('admin-panel/Classes/Currency.php'); 
 include_once('admin-panel/Classes/RentProperty.php');
 include_once('admin-panel/Classes/RentPropertyImage.php');
+
+session_start();
+include_once('languages/'.$_SESSION['Language'].'.php');
 ?>
 
 <!DOCTYPE html>
@@ -130,6 +133,11 @@ echo $paginate;
 				});
 				$(this).addClass('active'); //add active class to currently clicked element (style purpose)
 				return false; //prevent going to herf link
+			});
+			$(".btnlanguage").click(function(){
+				$("input[name=Language]").val($(this).attr('name'));
+				$("input[name=ReturnURL]").val(document.URL);
+				$("#frmLanguage").submit();
 			});	
 		});
 	</script>

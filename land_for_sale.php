@@ -4,6 +4,9 @@ include_once('admin-panel/Classes/Land.php');
 include_once('admin-panel/Classes/LandImage.php');
 include_once('admin-panel/Classes/User.php');
 
+session_start();
+include_once('languages/'.$_SESSION['Language'].'.php');
+
 $LandId = $_GET['Id'];
 ?>
 
@@ -190,13 +193,19 @@ $LandId = $_GET['Id'];
 				'autoStart':true
 			});
 
-			$('.related_property_container').slick({
+			$('.featured_property_container').slick({
 				  slidesToShow: 4,
 				  slidesToScroll: 1,
 				  autoplay: true,
 				  speed: 750
 			});
+			$(".btnlanguage").click(function(){
+				$("input[name=Language]").val($(this).attr('name'));
+				$("input[name=ReturnURL]").val(document.URL);
+				$("#frmLanguage").submit();
+			});
 		});
+
 
 		function myFunction() {
 		    window.print();

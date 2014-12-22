@@ -3,6 +3,9 @@ include_once('admin-panel/Classes/Advertisement.php');
 include_once('admin-panel/Classes/User.php'); 
 include_once('admin-panel/Classes/SecondaryProperty.php');
 include_once('admin-panel/Classes/SecondaryPropertyImage.php');
+
+session_start();
+include_once('languages/'.$_SESSION['Language'].'.php');
 ?>
 
 <!DOCTYPE html>
@@ -103,11 +106,17 @@ include_once('admin-panel/Classes/SecondaryPropertyImage.php');
 	<script type="text/javascript" src="inc/jquery-1.9.1.js"></script>
 	<script type="text/javascript" src="inc/slick-master/slick/slick.js"></script>
 	<script type="text/javascript">
-		$('.related_property_container').slick({
+		$('.featured_property_container').slick({
 			  slidesToShow: 4,
 			  slidesToScroll: 1,
 			  autoplay: true,
 			  speed: 750
+			});
+
+		$(".btnlanguage").click(function(){
+				$("input[name=Language]").val($(this).attr('name'));
+				$("input[name=ReturnURL]").val(document.URL);
+				$("#frmLanguage").submit();
 			});
 	</script>
 

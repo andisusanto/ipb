@@ -4,6 +4,8 @@ include_once('admin-panel/Classes/SecondaryProperty.php');
 include_once('admin-panel/Classes/SecondaryPropertyImage.php');
 include_once('admin-panel/Classes/User.php');
 
+session_start();
+include_once('languages/'.$_SESSION['Language'].'.php');
 $SecondaryPropertyId = $_GET['Id'];
 ?>
 
@@ -311,6 +313,11 @@ $SecondaryPropertyId = $_GET['Id'];
 				  slidesToScroll: 1,
 				  autoplay: true,
 				  speed: 750
+			});
+			$(".btnlanguage").click(function(){
+				$("input[name=Language]").val($(this).attr('name'));
+				$("input[name=ReturnURL]").val(document.URL);
+				$("#frmLanguage").submit();
 			});
 		});
 
