@@ -549,6 +549,12 @@ src: local('Myriad Pro Regular'), url('../fonts/MYRIADPRO-REGULAR.woff') format(
 	width: 185px;
 	height: 125px;
 }
+.property_listing_detail .loading {
+	background: #333 url('../images/loading.gif') no-repeat 50% 50%;
+}
+.property_listing_detail .loading img {
+	opacity:0.3;
+}
 
 .property_listing_detail .price {
 	background: #b90103;
