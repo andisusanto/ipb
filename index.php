@@ -85,7 +85,7 @@ include('checklanguage.php');
 					<div class="pagination">
 						<div class="row">
 							<div class="title"><?php echo $LangLatestProperty ?></div>
-							<div class="tabs" style="display:none">
+							<div class="tabs">
 								<ul>
 								    <li><a href="#tabs_all">All</a></li>
 								    <li><a href="#tabs_secondary">Secondary</a></li>
@@ -94,8 +94,12 @@ include('checklanguage.php');
 								</ul>
 							</div>
 						</div>
-						<div class="row pagination_tabs_container" id="results">
-
+						<!--<div class="row pagination_tabs_container" id="results">-->
+						<div class="row pagination_tabs_container">	
+							<div id="tabs_all">ALL</div>
+							<div id="tabs_secondary">SECONDARY</div>
+							<div id="tabs_rent">RENT</div>
+							<div id="tabs_land">LAND</div>
 						</div>
 						
 					</div>
