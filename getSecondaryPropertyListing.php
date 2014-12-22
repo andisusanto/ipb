@@ -8,6 +8,19 @@ if(!is_numeric($page_number)){die('Invalid page number!');}
 
 $Conn = Connection::get_DefaultConnection();
 $SecondaryPropertys = SecondaryProperty::LoadCollection($Conn, "Active = 1", "Id DESC", $page_number, 6);
+?>
+<script type="text/javascript">
+function addToCompareList(id){
+    $.ajax({
+        type:"POST",
+        url:"addSecondaryToCompareList.php",
+        data:{Id:id},
+        dataType : 'text',
+        success: function(text){alert(text);}
+    })
+}
+</script>
+<?php
 foreach($SecondaryPropertys as $SecondaryProperty){
 	echo '<div class="property_listing_detail">';
 	echo '<div class="title"><a href="secondary_property.php?Id='.$SecondaryProperty->get_Id().'">'.$SecondaryProperty->Title.'</a></div>';
@@ -19,11 +32,14 @@ foreach($SecondaryPropertys as $SecondaryProperty){
 	echo '<div class="price">'.$Currency->Symbol.' '.number_format($SecondaryProperty->Price).'</div>';
 	echo '<div class="description">'.$SecondaryProperty->Description.'</div>';
 	echo '<div class="more_detail_link"><a href="secondary_property.php?Id='.$SecondaryProperty->get_Id().'">More Detail</a></div>';
+    
+    echo '<a href="#" onclick=addToCompareList('.$SecondaryProperty->get_Id().')>compare</a>';
 	echo '<div class="detail">';
 	echo '<div class="area">'.$SecondaryProperty->BuildingArea.'/'.$SecondaryProperty->LandArea.'</div>';
 	echo '<div class="bedroom"><img src="images/bedroom_symbol.png"> '.$SecondaryProperty->Bedroom.'</div>';
 	echo '<div class="bathroom"><img src="images/bathroom_symbol.png"> '.$SecondaryProperty->Bathroom.'</div>';
 	echo '</div>';
 	echo '</div>';
+    
 }				
 ?>

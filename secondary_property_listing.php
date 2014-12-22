@@ -16,6 +16,7 @@ include('checklanguage.php');
 		<link rel="stylesheet" type="text/css" href="inc/slick-master/slick/slick.css" />
         <link rel="icon" type="image/png" href="http://ipropertybatam.com/images/favicon.png">
     	<title>iPropertyBatam - Secondary Property</title>
+        
 	</head>
 	<body class="secondary_property">
 	<div id="wrap">
@@ -65,47 +66,7 @@ include('checklanguage.php');
 						<div class="title">Property Listing</div>
 						<div class="property_listing_container" id="results">
 							
-							<?php 
-								/*$Conn = Connection::get_DefaultConnection();
-								$SecondaryPropertys = SecondaryProperty::LoadCollection($Conn, "Active = 1", "Id DESC", 0, 6);
-
-								foreach($SecondaryPropertys as $SecondaryProperty){
-									echo '<div class="property_listing_detail">';
-									echo '<div class="title">'.$SecondaryProperty->Title.'</div>';
-									$SecondaryPropertyImages = SecondaryPropertyImage::LoadCollection($Conn, "Active = 1 AND SecondaryProperty =". $SecondaryProperty->get_Id(), "", 0, 1);
-									foreach ($SecondaryPropertyImages as $SecondaryPropertyImage) {
-										echo '<div class="image"><img src="images/SecondaryPropertys/'.$SecondaryPropertyImage->ImageName.'"></div>';
-									}	
-									$Currency = Currency::GetObjectByKey($Conn, $SecondaryProperty->Currency);	
-									echo '<div class="price">'.$Currency->Symbol.' '.number_format($SecondaryProperty->Price).'</div>';
-									echo '<div class="description">'.$SecondaryProperty->Description.'</div>';
-									echo '<div class="more_detail_link"><a href="secondary_property.php?Id='.$SecondaryProperty->get_Id().'">More Detail</a></div>';
-									echo '<div class="detail">';
-									echo '<div class="area">'.$SecondaryProperty->BuildingArea.'/'.$SecondaryProperty->LandArea.'</div>';
-									echo '<div class="bedroom"><img src="images/bedroom_symbol.png"> '.$SecondaryProperty->Bedroom.'</div>';
-									echo '<div class="bathroom"><img src="images/bathroom_symbol.png"> '.$SecondaryProperty->Bathroom.'</div>';
-									echo '</div>';
-									echo '</div>';
-								}*/
-
-
-
-							?>
-							<!-- Static
-							<div class="property_listing_detail">
-								<div class="title">Villa Panbil</div>
-								<div class="image"><img src="images/banners/banner01.jpg"></div>
-								<div class="price">Rp. 1.000.000.000</div>
-								<div class="description">Lorem ipsum dolor sit amet, consectetu orem ipsum dolor sit amet, consectetu adipiscing elit, sed diam nonummy nibh euismod tincidunt aoreet doloreadipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore</div>
-								<div class="more_detail_link"><a href="#">More Detail</a></div>
-								<div class="detail">
-									<div class="area"><img src="images/area_symbol.png"> 100 - 400 m</div>
-									<div class="bedroom"><img src="images/bedroom_symbol.png"> 1 -2</div>
-									<div class="bathroom"><img src="images/bathroom_symbol.png"> 3 - 4</div>
-								</div>
-							</div>
-							-->
-						</div> <!-- Close property_listing_container -->
+						</div> 
 						<?php 
 						$results = Count(SecondaryProperty::LoadCollection($Conn, "Active = 1"));
 								$item_per_page = 6;
