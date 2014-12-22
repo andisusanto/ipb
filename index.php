@@ -5,8 +5,7 @@ include_once('admin-panel/Classes/Currency.php');
 include_once('admin-panel/Classes/NewProperty.php');
 include_once('admin-panel/Classes/NewPropertyImage.php');
 
-session_start();
-include_once('languages/'.$_SESSION['Language'].'.php');
+include('checklanguage.php');
 ?>
 <!DOCTYPE html>
 <html>
