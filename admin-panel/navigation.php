@@ -31,6 +31,9 @@
                                             <a href="NewProperty.php">New Property</a>
                                         </li>
                                         <li>
+                                            <a href="News.php">News</a>
+                                        </li>
+                                        <li>
                                             <a href="RentProperty.php">Rent Property</a>
                                         </li>
                                         <li>

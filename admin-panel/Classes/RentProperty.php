@@ -20,13 +20,14 @@ class RentProperty extends BaseObject{
     public $MinimumContract;
     public $Location;
     public $Active;
+    public $Featured;
 
    public function get_SaveQuery(){
        $mySQLi = $this->get_mySQLi();
-       return "INSERT INTO ".self::TABLENAME."(Bathroom,BuildingArea,Marketing,Price,FunitureIncluded,Bedroom,LandArea,Title,Currency,MapImage,Description,MinimumContract,Location,Active,LockField) VALUES('".$mySQLi->real_escape_string($this->Bathroom)."','".$mySQLi->real_escape_string($this->BuildingArea)."','".$mySQLi->real_escape_string($this->Marketing)."','".$mySQLi->real_escape_string($this->Price)."','".$mySQLi->real_escape_string($this->FunitureIncluded)."','".$mySQLi->real_escape_string($this->Bedroom)."','".$mySQLi->real_escape_string($this->LandArea)."','".$mySQLi->real_escape_string($this->Title)."','".$mySQLi->real_escape_string($this->Currency)."','".$mySQLi->real_escape_string($this->MapImage)."','".$mySQLi->real_escape_string($this->Description)."','".$mySQLi->real_escape_string($this->MinimumContract)."','".$mySQLi->real_escape_string($this->Location)."','".$mySQLi->real_escape_string($this->Active)."','".$mySQLi->real_escape_string($this->LockField)."')";}
+       return "INSERT INTO ".self::TABLENAME."(Bathroom,BuildingArea,Marketing,Price,FunitureIncluded,Bedroom,LandArea,Title,Currency,MapImage,Description,MinimumContract,Location,Active,LockField,Featured) VALUES('".$mySQLi->real_escape_string($this->Bathroom)."','".$mySQLi->real_escape_string($this->BuildingArea)."','".$mySQLi->real_escape_string($this->Marketing)."','".$mySQLi->real_escape_string($this->Price)."','".$mySQLi->real_escape_string($this->FunitureIncluded)."','".$mySQLi->real_escape_string($this->Bedroom)."','".$mySQLi->real_escape_string($this->LandArea)."','".$mySQLi->real_escape_string($this->Title)."','".$mySQLi->real_escape_string($this->Currency)."','".$mySQLi->real_escape_string($this->MapImage)."','".$mySQLi->real_escape_string($this->Description)."','".$mySQLi->real_escape_string($this->MinimumContract)."','".$mySQLi->real_escape_string($this->Location)."','".$mySQLi->real_escape_string($this->Active)."','".$mySQLi->real_escape_string($this->LockField)."','".$mySQLi->real_escape_string($this->Featured)."')";}
    public function get_UpdateQuery(){
        $mySQLi = $this->get_mySQLi();
-       return "UPDATE ".self::TABLENAME." SET Bathroom = '".$mySQLi->real_escape_string($this->Bathroom)."', BuildingArea = '".$mySQLi->real_escape_string($this->BuildingArea)."', Marketing = '".$mySQLi->real_escape_string($this->Marketing)."', Price = '".$mySQLi->real_escape_string($this->Price)."', FunitureIncluded = '".$mySQLi->real_escape_string($this->FunitureIncluded)."', Bedroom = '".$mySQLi->real_escape_string($this->Bedroom)."', LandArea = '".$mySQLi->real_escape_string($this->LandArea)."', Title = '".$mySQLi->real_escape_string($this->Title)."', Currency = '".$mySQLi->real_escape_string($this->Currency)."', MapImage = '".$mySQLi->real_escape_string($this->MapImage)."', Description = '".$mySQLi->real_escape_string($this->Description)."', MinimumContract = '".$mySQLi->real_escape_string($this->MinimumContract)."', Location = '".$mySQLi->real_escape_string($this->Location)."', Active = '".$mySQLi->real_escape_string($this->Active)."', LockField = '".$mySQLi->real_escape_string($this->LockField)."' WHERE Id = '".$mySQLi->real_escape_string($this->Id)."'";}
+       return "UPDATE ".self::TABLENAME." SET Bathroom = '".$mySQLi->real_escape_string($this->Bathroom)."', BuildingArea = '".$mySQLi->real_escape_string($this->BuildingArea)."', Marketing = '".$mySQLi->real_escape_string($this->Marketing)."', Price = '".$mySQLi->real_escape_string($this->Price)."', FunitureIncluded = '".$mySQLi->real_escape_string($this->FunitureIncluded)."', Bedroom = '".$mySQLi->real_escape_string($this->Bedroom)."', LandArea = '".$mySQLi->real_escape_string($this->LandArea)."', Title = '".$mySQLi->real_escape_string($this->Title)."', Currency = '".$mySQLi->real_escape_string($this->Currency)."', MapImage = '".$mySQLi->real_escape_string($this->MapImage)."', Description = '".$mySQLi->real_escape_string($this->Description)."', MinimumContract = '".$mySQLi->real_escape_string($this->MinimumContract)."', Location = '".$mySQLi->real_escape_string($this->Location)."', Active = '".$mySQLi->real_escape_string($this->Active)."', LockField = '".$mySQLi->real_escape_string($this->LockField)."', Featured = '".$mySQLi->real_escape_string($this->Featured)."' WHERE Id = '".$mySQLi->real_escape_string($this->Id)."'";}
    protected function get_TableName(){
        return self::TABLENAME;
    }
@@ -53,7 +54,7 @@ class RentProperty extends BaseObject{
                $tmpRentProperty->MinimumContract = $row['MinimumContract'];
                $tmpRentProperty->Location = $row['Location'];
                $tmpRentProperty->Active = $row['Active'];
-
+               $tmpRentProperty->Featured = $row['Featured'];
                $tmpRentProperty->LockField = $row['LockField'];
                return $tmpRentProperty;
            }
@@ -94,7 +95,7 @@ class RentProperty extends BaseObject{
                $tmpRentProperty->MinimumContract = $row['MinimumContract'];
                $tmpRentProperty->Location = $row['Location'];
                $tmpRentProperty->Active = $row['Active'];
-
+               $tmpRentProperty->Featured = $row['Featured'];
                $RentPropertys[] = $tmpRentProperty;
            }
            return $RentPropertys;

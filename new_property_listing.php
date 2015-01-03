@@ -13,6 +13,7 @@ $totalItem = count(NewProperty::LoadCollection($Conn, "Active = 1"));
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="Kami Menerima Titipan Jual Beli Sewa Property Batam Bebas Biaya Administrasi, Biaya Iklan dan Promosi! Hubungi: 0778-428 889 Email: Marketing@ipropertybatam.com">
 	    <link rel="stylesheet" href="css/iPropertyBatam.css" />
 		<link rel="stylesheet" type="text/css" href="inc/skdslider/skdslider.css" />
 		<link rel="stylesheet" type="text/css" href="inc/slick-master/slick/slick.css" />

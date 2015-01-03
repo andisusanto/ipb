@@ -1,3 +1,4 @@
+<?php include_once('ValidateSession.php') ?>
 <?php
 include_once('Classes/Connection.php');
 include_once('Classes/SecondaryProperty.php');

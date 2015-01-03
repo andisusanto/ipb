@@ -1,3 +1,4 @@
+<?php include_once('ValidateSession.php') ?>
 <?php
 include_once('Classes/Connection.php');
 include_once('Classes/SecondaryProperty.php');
@@ -73,7 +74,7 @@ $Conn = Connection::get_DefaultConnection();
 
                                     <div class="formSep">
                                         <label class="req">Description</label>
-                                        <Textarea class="span10 autosize_textarea" cols="70" rows="3" name="Title" id="Title"></Textarea>
+                                        <Textarea class="span10 autosize_textarea" cols="70" rows="3" name="Description" id="Description"></Textarea>
                                     </div>
 
                                     <div class="formSep">

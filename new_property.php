@@ -6,6 +6,7 @@ include_once('admin-panel/Classes/NewPropertyImage.php');
 include_once('admin-panel/Classes/NewPropertyMarketing.php');
 include_once('admin-panel/Classes/NewPropertyFacility.php');
 include_once('admin-panel/Classes/User.php');
+include_once('admin-panel/Classes/Advertisement.php');
 
 include('checklanguage.php');
 
@@ -15,6 +16,7 @@ $NewPropertyId = $_GET['Id'];
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="Kami Menerima Titipan Jual Beli Sewa Property Batam Bebas Biaya Administrasi, Biaya Iklan dan Promosi! Hubungi: 0778-428 889 Email: Marketing@ipropertybatam.com">
 	    <link rel="stylesheet" href="css/iPropertyBatam.css" />
 		<link rel="stylesheet" type="text/css" href="inc/skdslider/skdslider.css" />
 		<link rel="stylesheet" type="text/css" href="inc/slick-master/slick/slick.css" />
@@ -190,6 +192,25 @@ $NewPropertyId = $_GET['Id'];
 							//$_GET['cat'] = '0';
 							//@include("featured.php"); 
 						?>
+						<div class="advertisement">
+							<?php
+								$Conn = Connection::get_DefaultConnection();
+								$Advertisements = Advertisement::LoadCollection($Conn, "Active = 1 AND ShowOnNewPropertyListing = 1", "", 1, 2);
+								$AdvCount = 0;
+								foreach ($Advertisements as $Advertisement) {
+									echo '<div class="row"><a href="'.$Advertisement->Link.'"><img src="images/Advertisements/'.$Advertisement->ImageName.'"></a></div>';
+									$AdvCount++;
+								}
+								if ($AdvCount == 0){
+									echo '<div class="row"><img src="images/Advertisements/Default.png"></div>';
+									echo '<div class="row"><img src="images/Advertisements/Default.png"></div>';
+								} 
+								elseif($AdvCount == 1){
+									echo '<div class="row"><img src="images/Advertisements/Default.png"></div>';
+								}
+							?>
+							
+						</div>
 
 					</div> <!-- Close right -->
 

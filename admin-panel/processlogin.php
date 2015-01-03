@@ -5,17 +5,18 @@ $Password = $_POST['login_password'];
 $Connection = Connection::get_DefaultConnection();
 
 if ($User = User::GetObjectByUserName($Connection,$UserName)){
-	if ($Member->ComparePassword($Password)){
+	if ($User->ComparePassword($Password)){
+		session_start();
 		$_SESSION['User'] = $User;
-        header('location:dashboard.php');
+        header('location:Dashboard.php');
 	}
 	else
 	{
-		echo 'User or password not match';
+		header('location:index.php?error=1');
 	}
 }
 else
 {
-	echo 'User or password not match';
+	header('location:index.php?error=1');
 }
 ?>

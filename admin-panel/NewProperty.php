@@ -1,9 +1,10 @@
+<?php include_once('ValidateSession.php') ?>
 <?php
 include_once('Classes/Connection.php');
-include_once('Classes/Banner.php');
+include_once('Classes/NewProperty.php');
 
 $conn = Connection::get_DefaultConnection();
-$Banners = Banner::LoadCollection($conn);
+$NewPropertys = NewProperty::LoadCollection($conn);
 
 ?>
 <!DOCTYPE HTML>
@@ -55,20 +56,20 @@ $Banners = Banner::LoadCollection($conn);
                 <div class="row-fluid"></div>
                 <div class="row-fluid">
                     <div class="span12">
-                        <h4>Banner</h4>
+                        <h4>New Property</h4>
                                 
                         <div class="w-box">
                             <div class="w-box-header">
-                                <a href="AddBanner.php" class="btn btn-inverse btn-mini" title="View">New Banner</a>
+                                <a href="AddNewProperty.php" class="btn btn-inverse btn-mini" title="View">New New Property</a>
+                                
                             </div>
                             <div class="w-box-content">
                                 <table id="dt_hScroll" class="dataTables_full table table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Image</th>
                                         <th>Title</th>
-                                        <th>Link</th>
+                                        <th>Description</th>
                                         <th>Active</th>
                                         <th>Actions</th>
                                       
@@ -77,26 +78,27 @@ $Banners = Banner::LoadCollection($conn);
                                 <tbody>
                                     <?php
                                             $counter = 0;
-                                            foreach ($Banners as $Banner) {
-	                                        $Id = $Banner->get_Id();
-	                                        $Title = $Banner->Title;
-	                                        $Link = $Banner->Link;
-	                                        $ImageName = $Banner->ImageName;
-	                                        $Active = $Banner->Active;
-                                            if ($Banner->Active == 1){$Active = "Active";}else{$Active = "InActive";}
+                                            foreach ($NewPropertys as $NewProperty) {
+                                                $Id = $NewProperty->get_Id();
+                                                $Title = $NewProperty->Title;
+                                                $Description = $NewProperty->Description;
+                                                if ($NewProperty->Active == 1){$Active = "Active";}else{$Active = "InActive";}
                                                 $counter++;
 
                                                 echo "<tr>";
                                                 echo "<td>".$counter."</td>";
-                                                echo "<td style='width:60px'><img alt='' src='../images/banners/".$ImageName."' style='height:50px;width:50px'></td>";
                                                 echo "<td>".$Title."</td>";
-                                                echo "<td>".$Link."</td>";
+                                                echo "<td>".$Description."</td>";
                                                 echo "<td>".$Active."</td>";
                                                 echo '
                                                     <td>
                                                         <div class="btn-group">
-                                                            <a href="EditBanner.php?Id='.$Id.'" class="btn btn-mini" title="Edit"><i class="icon-pencil"></i></a>
-                                                            <a href="ProcessDeleteBanner.php?Id='.$Id.'" class="btn btn-mini" title="Delete"><i class="icon-trash"></i></a>
+                                                            <a href="NewPropertyImage.php?Id='.$Id.'" class="btn btn-mini" title="Manage Image"><i class="icon-camera"></i></a>
+                                                            <a href="NewPropertyFeatured.php?Id='.$Id.'" class="btn btn-mini" title="Manage Featured"><i class="icsw16-facebook-like-2"></i></a>
+                                                            <a href="NewPropertyFacility.php?Id='.$Id.'" class="btn btn-mini" title="Manage Facility"><i class="icsw16-map"></i></a>
+                                                            <a href="NewPropertyMarketing.php?Id='.$Id.'" class="btn btn-mini" title="Manage Marketing"><i class="icsw16-users-2"></i></a>
+                                                            <a href="EditNewProperty.php?Id='.$Id.'" class="btn btn-mini" title="Edit"><i class="icon-pencil"></i></a>
+                                                            <a href="ProcessDeleteNewProperty.php?Id='.$Id.'" class="btn btn-mini" title="Delete"><i class="icon-trash"></i></a>
                                                         </div>
                                                     </td>
                                                 ';

@@ -1,3 +1,4 @@
+<?php include_once('ValidateSession.php') ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head>

@@ -1,55 +1,61 @@
+<?php include_once('ValidateSession.php') ?>
 <?php
 include_once('Classes/Connection.php');
-include_once('Classes/Banner.php');
+include_once('Classes/NewProperty.php');
+include_once('Classes/Currency.php');
+include_once('Classes/Location.php');
+include_once('Classes/User.php');
+
+$Conn = Connection::get_DefaultConnection();
 
 $Id = $_GET['Id']; 
-$Conn = Connection::get_DefaultConnection();
-$Banner = Banner::GetObjectByKey($Conn, $Id);
-$Link = $Banner->Link;
-$ImageName = $Banner->ImageName;
-$Title = $Banner->Title;
-$Active = $Banner->Active;
 
+$NewProperty = NewProperty::GetObjectByKey($Conn, $Id);
+$Title = $NewProperty->Title;
+    $Description = $NewProperty->Description;
+    $NewProperty_Currency = $NewProperty->Currency;
+    $MinPrice = $NewProperty->MinPrice;
+    $MaxPrice = $NewProperty->MaxPrice;
+    $Bedroom = $NewProperty->Bedroom;
+    $Bathroom = $NewProperty->Bathroom;
+    $Foundation = $NewProperty->Foundation;
+    $Platfond = $NewProperty->Platfond;
+    $RoofFrame = $NewProperty->RoofFrame;
+    $Roof = $NewProperty->Roof;
+    $Wall = $NewProperty->Wall;
+    $MainDoor = $NewProperty->MainDoor;
+    $Window = $NewProperty->Window;
+    $Floor = $NewProperty->Floor;
+    $NewProperty_Location = $NewProperty->Location;
+    $MapImage = $NewProperty->MapImage;
+    $Featured = $NewProperty->Featured;
+    $Active = $NewProperty->Active;
 ?>
+
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head>
 
         <meta charset="UTF-8">
-        <title>iPropertyBatam Dashboard</title>
+        <title>Dashboard</title>
         <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
         <link rel="icon" type="image/ico" href="favicon.ico">
         
-        <!-- bootstrap framework css -->
-            <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-            <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css">
-        <!-- iconSweet2 icon pack (16x16) -->
-            <link rel="stylesheet" href="img/icsw2_16/icsw2_16.css">
-        <!-- splashy icon pack -->
-            <link rel="stylesheet" href="img/splashy/splashy.css">
-        <!-- flag icons -->
-            <link rel="stylesheet" href="img/flags/flags.css">
-        <!-- power tooltips -->
-            <link rel="stylesheet" href="js/lib/powertip/jquery.powertip.css">
-        <!-- google web fonts -->
-            <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Abel">
-            <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">
-        <!-- switch buttons -->
-            <link rel="stylesheet" href="js/lib/ibutton/css/jquery.ibutton.css">
-        <!-- aditional stylesheets -->
-        <!-- colorbox -->
-            <link rel="stylesheet" href="js/lib/colorbox/colorbox.css">
-        <!--fullcalendar -->
-            <link rel="stylesheet" href="js/lib/fullcalendar/fullcalendar_beoro.css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="img/icsw2_16/icsw2_16.css">
+        <link rel="stylesheet" href="img/splashy/splashy.css">
+        <link rel="stylesheet" href="img/flags/flags.css">
+        <link rel="stylesheet" href="js/lib/powertip/jquery.powertip.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Abel">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300">
+        <link rel="stylesheet" href="js/lib/ibutton/css/jquery.ibutton.css">
+        <link rel="stylesheet" href="js/lib/colorbox/colorbox.css">
+        <link rel="stylesheet" href="js/lib/fullcalendar/fullcalendar_beoro.css">
 
-
-        <!-- main stylesheet -->
-            <link rel="stylesheet" href="css/beoro.css">
-
-   <!-- datatables -->
-            <link rel="stylesheet" href="js/lib/datatables/css/datatables_beoro.css">
-
-            <link rel="stylesheet" href="js/lib/bootstrap-datepicker/css/datepicker.css">
+        <link rel="stylesheet" href="css/beoro.css">
+        <link rel="stylesheet" href="js/lib/datatables/css/datatables_beoro.css">
+        <link rel="stylesheet" href="js/lib/bootstrap-datepicker/css/datepicker.css">
 
         <!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css"><![endif]-->
         <!--[if IE 9]><link rel="stylesheet" href="css/ie9.css"><![endif]-->
@@ -76,49 +82,150 @@ $Active = $Banner->Active;
                 <div class="row-fluid"></div>
                 <div class="row-fluid">
                     <div class="span12">
-                        <h4>Edit Banner</h4>
+                        <h4>Edit New Property</h4>
                               
                     	<div class="w-box" id="n_fileupload">
                             <div class="w-box-header">
-                                <h4><a href="Banner.php" class="btn btn-inverse btn-mini">Back to Banner</a></h4>
+                                <h4><a href="NewProperty.php" class="btn btn-inverse btn-mini">Back to NewProperty</a></h4>
                             </div>
                             <div class="w-box-content">
-                                <form id="validate_field_types" method="post" action="ProcessEditBanner.php" enctype="multipart/form-data">
-	                                <div class="formSep">
-                                        <input type="hidden" name="Id" value="<?php echo $Id; ?>">
-	                                    <div class="fileupload fileupload-new" data-provides="fileupload">
-	                                    	<div class="fileupload-new thumbnail" style="width: 150px; height: 150px;">
-	                                        	<img src="../images/Banners/<?php echo $ImageName; ?>" width="150" height="150" " alt="">
-	                                        </div>
-	                                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 150px; max-height: 150px; line-height: 20px;"></div>
-	                                        <div>
-	                                        	<span class="btn btn-small btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name="ImageName"></span>
-	                                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-	                                        </div>
-	                                	</div>
-									</div>
+                                <form id="validate_field_types" method="post" action="ProcessEditNewProperty.php" enctype="multipart/form-data">
+	                                <input type="hidden" name="Id" value="<?php echo $Id; ?>">
                                     <div class="formSep">
-	                                    <label class="req">Title</label>
-	                                	<input required class="span10" type="text" name="Title" id="Title" value="<?php echo $Title; ?>" />
-	                                </div>
+                                        <label class="req">Title</label>
+                                        <input required class="span10" type="text" name="Title" id="Title"  value="<?php echo $Title; ?>" />
+                                    </div>
+
+                                    <div class="formSep">
+                                        <label class="req">Description</label>
+                                        <Textarea class="span10 autosize_textarea" cols="70" rows="3" name="Description" id="Description"><?php echo $Description; ?></Textarea>
+                                    </div>
+
+                                    <div class="formSep">
+                                        <div class="span3">
+                                            <label class="req">Currency</label>
+                                            <select class="span10" name="Currency" id="Currency">
+                                                <?php
+                                                $Currencys = Currency::LoadCollection($Conn);
+                                                foreach ($Currencys as $Currency) {
+                                                    if($NewProperty_Currency==$Currency->get_Id()){
+                                                        $isSelected = 'selected';
+                                                    }else{
+                                                        $isSelected = '';
+                                                    }
+                                                    echo "<option value=". $Currency->get_Id() ." ".  $isSelected .">". $Currency->Code ."</option>";
+                                                }
+                                            ?>
+                                            </select>
+                                        </div>
+                                       <div class="span4">
+                                            <label class="req">Min Price</label>
+                                            <input class="span10" type="text" name="MinPrice" id="MinPrice" value="<?php echo $MinPrice ?>"  />
+                                        </div>
+                                        <div class="span4">
+                                            <label class="req">Max Price</label>
+                                            <input class="span10" type="text" name="MaxPrice" id="MaxPrice" value="<?php echo $MaxPrice ?>" />
+                                        </div>
+                                    </div>
+
+                                    <div class="formSep">
+                                        <label class="req">Location</label>
+                                        <select class="span10" name="Location" id="Location">
+                                             <?php
+                                                $Locations = Location::LoadCollection($Conn);
+                                                foreach ($Locations as $Location) {
+                                                    if($land_Location==$Location->get_Id()){
+                                                        $isSelected = 'selected';
+                                                    }else{
+                                                        $isSelected = '';
+                                                    }
+                                                    echo "<option value=". $Location->get_Id() ." ".  $isSelected .">". $Location->Name ."</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="formSep">
+                                        <div class="span3">
+                                            <label class="req">Bedroom</label>
+                                            <input type="text" class="span12" name="Bedroom" id="Bedroom" value="<?php echo $Bedroom; ?>" />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Bathroom</label>
+                                            <input type="text" class="span12" name="Bathroom" id="Bathroom" value="<?php echo $Bathroom; ?>" />
+                                        </div>
+                                    </div>
+
+                                    <div class="formSep">
+                                        <div class="span3">
+                                            <label class="req">Foundation</label>
+                                            <input type="text" name="Foundation" id="Foundation" value="<?php echo $Foundation; ?>" />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Platfond</label>
+                                            <input type="text" name="Platfond" id="Platfond" value="<?php echo $Platfond; ?>" />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Roof Frame</label>
+                                            <input type="text" name="RoofFrame" id="RoofFrame" value="<?php echo $RoofFrame; ?>" />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Roof</label>
+                                            <input type="text" name="Roof" id="Roof" value="<?php echo $Roof; ?>" />
+                                        </div>
+                                    </div>
+                                    <div class="formSep">
+                                        
+                                        <div class="span3">
+                                            <label class="req">Wall</label>
+                                            <input type="text" name="Wall" id="Wall" value="<?php echo $Wall; ?>" />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Main Door</label>
+                                            <input type="text" name="MainDoor" id="MainDoor" value="<?php echo $MainDoor; ?>" />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Window</label>
+                                            <input type="text" name="Window" id="Window" value="<?php echo $Window ; ?>" />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Floor</label>
+                                            <input type="text" name="Floor" id="Floor" value="<?php echo $Floor ?>"  />
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="formSep">
+
+                                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                                            <div class="fileupload-new thumbnail" style="width: 150px; height: 150px;">
+                                                <img src="../images/NewPropertys/<?php echo $MapImage ?>" alt="">
+                                            </div>
+                                            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 150px; max-height: 150px; line-height: 20px;"></div>
+                                            <div>
+                                                <span class="btn btn-small btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name="MapImage"></span>
+                                                <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+
+                                    <div class="formSep" style="min-height: 50px;">
+                                        
+                                        <div class="span3">
+                                            <label>Featured</label>
+                                            <input type="checkbox" name="Featured" <?php if($Featured==1){echo "Checked";}else{echo "";} ?>/>
+                                        </div>
+                                        <div class="span3">
+                                            <label>Active</label>
+                                            <input type="checkbox" name="Active" <?php if($Active==1){echo "Checked";}else{echo "";} ?>/>
+                                        </div>
+                                        
+                                    </div>
+
 
 	                                <div class="formSep">
-	                                    <label class="req">Link</label>
-	                                	<input required class="span10" type="text" name="Link" id="Link" value="<?php echo $Link; ?>" />
-	                                </div>
-
-	                               	<div class="formSep" style="min-height: 50px;">
-                                    	
-                                    	
-	                                    <div class="span3">
-	                                        <label>Active</label>
-	                                        <input type="checkbox" name="Active" <?php if($Active==1){echo "Checked";}else{echo "";} ?>/>
-	                                        
-	                                    </div>
-	                                </div>
-
-	                                <div class="formSep">
-                                        <button type="submit" class="btn">Update</button>
+                                        <button type="submit" class="btn">Save</button>
                                     </div>
                             	</form>
                                
@@ -237,7 +344,7 @@ $Active = $Banner->Active;
             <script src="js/lib/ckeditor/ckeditor.js"></script>
 
             <script src="js/pages/beoro_form_elements.js"></script>
-        
+            <script src="js/form/jquery.autosize.min.js"></script>
             <script src="js/lib/ibutton/js/jquery.ibutton.beoro.min.js"></script>
             <script type="text/javascript">
 

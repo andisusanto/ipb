@@ -1,3 +1,4 @@
+<?php include_once('ValidateSession.php') ?>
 <?php
 include_once('Classes/SecondaryProperty.php');
 include_once('Classes/SecondaryPropertyImage.php');
@@ -95,7 +96,7 @@ $SecondaryPropertyImages = SecondaryPropertyImage::LoadCollection($Conn, 'Second
                                                 echo '
                                                     <td>
                                                         <div class="btn-group">
-                                                            <a href="ProcessDeleteSecondaryPropertyImage.php?Id='.$Id.'" class="btn btn-mini" title="Delete"><i class="icon-trash"></i></a>
+                                                            <a href="ProcessDeleteSecondaryPropertyImage.php?Id='.$Id.'&SecondaryPropertyId='.$SecondaryPropertyId.'" class="btn btn-mini" title="Delete"><i class="icon-trash"></i></a>
                                                         </div>
                                                     </td>
                                                 ';

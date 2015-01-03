@@ -4,13 +4,14 @@ include_once('admin-panel/Classes/Banner.php');
 include_once('admin-panel/Classes/Currency.php'); 
 include_once('admin-panel/Classes/NewProperty.php');
 include_once('admin-panel/Classes/NewPropertyImage.php');
-
+include_once('admin-panel/Classes/News.php');
 include('checklanguage.php');
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="Kami Menerima Titipan Jual Beli Sewa Property Batam Bebas Biaya Administrasi, Biaya Iklan dan Promosi! Hubungi: 0778-428 889 Email: Marketing@ipropertybatam.com">
 	    <link rel="stylesheet" href="css/iPropertyBatam.css" />
 		<link rel="stylesheet" type="text/css" href="inc/skdslider/skdslider.css" />
 		<link rel="stylesheet" type="text/css" href="inc/slick-master/slick/slick.css" />
@@ -94,12 +95,12 @@ include('checklanguage.php');
 								</ul>
 							</div>
 						</div>
-						<!--<div class="row pagination_tabs_container" id="results">-->
-						<div class="row pagination_tabs_container">	
+						<div class="row pagination_tabs_container" id="results">
+						<!--<div class="row pagination_tabs_container">	
 							<div id="tabs_all">ALL</div>
 							<div id="tabs_secondary">SECONDARY</div>
 							<div id="tabs_rent">RENT</div>
-							<div id="tabs_land">LAND</div>
+							<div id="tabs_land">LAND</div>-->
 						</div>
 						
 					</div>
@@ -148,42 +149,35 @@ include('checklanguage.php');
 
 				<div class="row">
 					<div class="news">
-						<div class="main_news">
-							<div><img src="images/banners/banner01.jpg"></div>
-							<div class="title">Coming Soon</div>
-							<div class="description">Coming soon all news about property in Indonesia.</div>
-						</div>
+						<?php 
+							$Newss = News::LoadCollection($Conn, 'Active = 1', 'NewsDate DESC', 1, 1);
+							foreach ($Newss as $News) {
+								echo '
+									<div class="main_news">
+										<div><img src="img.php?src=News/'.$News->ImageName.'&w=300""></div>
+										<div class="title">'.$News->Title.'</div>
+										<div class="description">'.substr($News->Description, 0, 500).' ...</div>
+									</div>
+								';
+							}
+						?>
+						
 						<div class="news_container">
-
-							<div class="news_list">
-								<div class="news_list_img"><img src="images/banners/banner01.jpg"></div>
-								<div class="news_list_detail">
-									<div class="title">Coming Soon</div>
-							<div class="description">Coming soon all news about property in Indonesia.</div>
-								</div>
-							</div>
+							<?php 
+								$Newss = News::LoadCollection($Conn, 'Active = 1', 'NewsDate DESC LIMIT 1, 4');
+								foreach ($Newss as $News) {
+									echo '
+										<div class="news_list">
+											<div class="news_list_img"><img src="img.php?src=News/'.$News->ImageName.'&w=100""></div>
+											<div class="news_list_detail">
+												<div class="title">'.$News->Title.'</div>
+												<div class="description">'.substr($News->Description, 0, 50).' ...</div>
+											</div>
+										</div>
+									';
+								}
+							?>
 							
-							<div class="news_list">
-								<div class="news_list_img"><img src="images/banners/banner01.jpg"></div>
-								<div class="news_list_detail">
-									<div class="title">Coming Soon</div>
-									<div class="description">Coming soon all news about property in Indonesia.</div>
-								</div>
-							</div>
-							<div class="news_list">
-								<div class="news_list_img"><img src="images/banners/banner01.jpg"></div>
-								<div class="news_list_detail">
-									<div class="title">Coming Soon</div>
-									<div class="description">Coming soon all news about property in Indonesia.</div>
-								</div>
-							</div>
-							<div class="news_list">
-								<div class="news_list_img"><img src="images/banners/banner01.jpg"></div>
-								<div class="news_list_detail">
-									<div class="title">Coming Soon</div>
-									<div class="description">Coming soon all news about property in Indonesia.</div>
-								</div>
-							</div>
 
 						</div>
 					</div>

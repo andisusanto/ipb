@@ -1,7 +1,12 @@
+<?php include_once('ValidateSession.php') ?>
 <?php
 include_once('Classes/Connection.php');
 include_once('Classes/NewProperty.php');
+include_once('Classes/Currency.php');
+include_once('Classes/Location.php');
+include_once('Classes/User.php');
 
+$Conn = Connection::get_DefaultConnection();
 ?>
 <!DOCTYPE HTML>
 <html lang="en-US">
@@ -61,39 +66,126 @@ include_once('Classes/NewProperty.php');
                             </div>
                             <div class="w-box-content">
                                 <form id="validate_field_types" method="post" action="ProcessAddNewProperty.php" enctype="multipart/form-data">
-	                                <div class="formSep">
+	                                
+                                    <div class="formSep">
+                                        <label class="req">Title</label>
+                                        <input required class="span10" type="text" name="Title" id="Title"  />
+                                    </div>
 
-	                                    <div class="fileupload fileupload-new" data-provides="fileupload">
-	                                    	<div class="fileupload-new thumbnail" style="width: 150px; height: 150px;">
-	                                        	<img src="img/dummy_150x150.gif" alt="">
-	                                        </div>
-	                                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 150px; max-height: 150px; line-height: 20px;"></div>
-	                                        <div>
-	                                        	<span class="btn btn-small btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name="ImageName"></span>
-	                                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-	                                        </div>
-	                                	</div>
-									</div>
+                                    <div class="formSep">
+                                        <label class="req">Description</label>
+                                        <Textarea class="span10 autosize_textarea" cols="70" rows="3" name="Description" id="Description"></Textarea>
+                                    </div>
+
+                                    <div class="formSep">
+                                        <div class="span3">
+                                            <label class="req">Currency</label>
+                                            <select class="span10" name="Currency" id="Currency">
+                                                <?php
+                                                    $Currencys = Currency::LoadCollection($Conn);
+                                                    foreach ($Currencys as $Currency) {
+                                                        echo "<option value=".$Currency->get_Id()." required>".$Currency->Code."</option>";
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                        <div class="span4">
+                                            <label class="req">Min Price</label>
+                                            <input class="span10" type="text" name="MinPrice" id="MinPrice"  />
+                                        </div>
+                                        <div class="span4">
+                                            <label class="req">Max Price</label>
+                                            <input class="span10" type="text" name="MaxPrice" id="MaxPrice"  />
+                                        </div>
+                                    </div>
+
+                                    <div class="formSep">
+                                        <label class="req">Location</label>
+                                        <select class="span10" name="Location" id="Location">
+                                            <?php
+                                                $Locations = Location::LoadCollection($Conn);
+                                                foreach ($Locations as $Location) {
+                                                    echo "<option value=".$Location->get_Id()." required>".$Location->Name."</option>";
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="formSep">
+                                        <div class="span3">
+                                            <label class="req">Bedroom</label>
+                                            <input type="text" name="Bedroom" id="Bedroom"  />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Bathroom</label>
+                                            <input type="text" name="Bathroom" id="Bathroom"  />
+                                        </div>
+                                    </div>
+
+                                    <div class="formSep">
+                                        <div class="span3">
+                                            <label class="req">Foundation</label>
+                                            <input type="text" name="Foundation" id="Foundation"  />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Platfond</label>
+                                            <input type="text" name="Platfond" id="Platfond"  />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Roof Frame</label>
+                                            <input type="text" name="RoofFrame" id="RoofFrame"  />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Roof</label>
+                                            <input type="text" name="Roof" id="Roof"  />
+                                        </div>
+                                    </div>
+                                    <div class="formSep">
+                                        
+                                        <div class="span3">
+                                            <label class="req">Wall</label>
+                                            <input type="text" name="Wall" id="Wall"  />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Main Door</label>
+                                            <input type="text" name="MainDoor" id="MainDoor"  />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Window</label>
+                                            <input type="text" name="Window" id="Window"  />
+                                        </div>
+                                        <div class="span3">
+                                            <label class="req">Floor</label>
+                                            <input type="text" name="Floor" id="Floor"  />
+                                        </div>
+                                    </div>
+                                    <div class="formSep">
+
+                                        <div class="fileupload fileupload-new" data-provides="fileupload">
+                                            <div class="fileupload-new thumbnail" style="width: 150px; height: 150px;">
+                                                <img src="img/dummy_150x150.gif" alt="">
+                                            </div>
+                                            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 150px; max-height: 150px; line-height: 20px;"></div>
+                                            <div>
+                                                <span class="btn btn-small btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name="MapImage"></span>
+                                                <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                     
-	                                <div class="formSep">
-	                                    <label class="req">Title</label>
-	                                	<input class="span10" type="text" name="Title" id="Title"  />
-	                                </div>
-
-	                                 <div class="formSep">
-	                                    <label class="req">Link</label>
-	                                	<input class="span10" type="text" name="Link" id="Link"  />
-	                                </div>
 
                                     <div class="formSep" style="min-height: 50px;">
-                                    	
-                                    	<div class="span3">
-	                                        <label>Active</label>
-	                                        <input type="checkbox" name="Active" />
-	                                        
-	                                    </div>
-	                                    
-	                                </div>
+                                        
+                                        <div class="span3">
+                                            <label>Featured</label>
+                                            <input type="checkbox" name="Featured" />
+                                        </div>
+                                        <div class="span3">
+                                            <label>Active</label>
+                                            <input type="checkbox" name="Active" />
+                                        </div>
+                                        
+                                    </div>
 
 
 	                                <div class="formSep">
@@ -216,7 +308,7 @@ include_once('Classes/NewProperty.php');
             <script src="js/lib/ckeditor/ckeditor.js"></script>
 
             <script src="js/pages/beoro_form_elements.js"></script>
-        
+            <script src="js/form/jquery.autosize.min.js"></script>
             <script src="js/lib/ibutton/js/jquery.ibutton.beoro.min.js"></script>
             <script type="text/javascript">
 

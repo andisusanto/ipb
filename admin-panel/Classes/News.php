@@ -10,13 +10,14 @@ class News extends BaseObject{
     public $Description;
     public $ImageName;
     public $NewsDate;
+    public $Active;
 
    public function get_SaveQuery(){
        $mySQLi = $this->get_mySQLi();
-       return "INSERT INTO ".self::TABLENAME."(Title,Description,ImageName,NewsDate,LockField) VALUES('".$mySQLi->real_escape_string($this->Title)."','".$mySQLi->real_escape_string($this->Description)."','".$mySQLi->real_escape_string($this->ImageName)."','".$mySQLi->real_escape_string($this->NewsDate)."','".$mySQLi->real_escape_string($this->LockField)."')";}
+       return "INSERT INTO ".self::TABLENAME."(Title,Description,ImageName,NewsDate,LockField,Active) VALUES('".$mySQLi->real_escape_string($this->Title)."','".$mySQLi->real_escape_string($this->Description)."','".$mySQLi->real_escape_string($this->ImageName)."','".$mySQLi->real_escape_string($this->NewsDate)."','".$mySQLi->real_escape_string($this->LockField)."','".$mySQLi->real_escape_string($this->Active)."')";}
    public function get_UpdateQuery(){
        $mySQLi = $this->get_mySQLi();
-       return "UPDATE ".self::TABLENAME." SET Title = '".$mySQLi->real_escape_string($this->Title)."', Description = '".$mySQLi->real_escape_string($this->Description)."', ImageName = '".$mySQLi->real_escape_string($this->ImageName)."', NewsDate = '".$mySQLi->real_escape_string($this->NewsDate)."', LockField = '".$mySQLi->real_escape_string($this->LockField)."' WHERE Id = '".$mySQLi->real_escape_string($this->Id)."'";}
+       return "UPDATE ".self::TABLENAME." SET Title = '".$mySQLi->real_escape_string($this->Title)."', Description = '".$mySQLi->real_escape_string($this->Description)."', ImageName = '".$mySQLi->real_escape_string($this->ImageName)."', NewsDate = '".$mySQLi->real_escape_string($this->NewsDate)."', LockField = '".$mySQLi->real_escape_string($this->LockField)."', Active = '".$mySQLi->real_escape_string($this->Active)."' WHERE Id = '".$mySQLi->real_escape_string($this->Id)."'";}
    protected function get_TableName(){
        return self::TABLENAME;
    }
@@ -30,7 +31,7 @@ class News extends BaseObject{
                $tmpNews->Description = $row['Description'];
                $tmpNews->ImageName = $row['ImageName'];
                $tmpNews->NewsDate = $row['NewsDate'];
-
+               $tmpNews->Active = $row['Active'];
                $tmpNews->LockField = $row['LockField'];
                return $tmpNews;
            }
@@ -61,6 +62,7 @@ class News extends BaseObject{
                $tmpNews->Description = $row['Description'];
                $tmpNews->ImageName = $row['ImageName'];
                $tmpNews->NewsDate = $row['NewsDate'];
+               $tmpNews->Active = $row['Active'];
 
                $Newss[] = $tmpNews;
            }

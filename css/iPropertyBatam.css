@@ -5,6 +5,9 @@ font-family: 'Myriad Pro';
 src: local('Myriad Pro Regular'), url('../fonts/MYRIADPRO-REGULAR.woff') format('woff');
 }
 
+.disable_link{
+	pointer-events: none;
+}
 .container{
 	width: 100%;
 	height: auto;
@@ -341,18 +344,26 @@ src: local('Myriad Pro Regular'), url('../fonts/MYRIADPRO-REGULAR.woff') format(
 }
 
 .main_news {
-	height: 250px;
+	height: 200px;
 	background: #FFF;
 }
 
 .main_news .title {
+	width: 55%;
 	color: #e54e53;
 	font-size: 20px;
+	float: left;
+}
+.main_news .description {
+	float: left;
+	width: 55%;
 }
 
 .main_news img {
-	width: 100%;
+	width: 40%;
 	height: 170px;
+	float: left;
+	margin-right: 15px;
 }
 
 .news_list {
