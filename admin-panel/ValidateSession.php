@@ -1,6 +1,6 @@
 <?php 
 session_start();
-$inactive = 1800; // Set timeout period in seconds
+$inactive = 900; // Set timeout period in seconds
 
 if (isset($_SESSION['timeout'])) {
     $session_life = time() - $_SESSION['timeout'];

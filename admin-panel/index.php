@@ -40,7 +40,7 @@
 <body>
     <div id="login-wrapper" class="clearfix">
         <div class="main-col">
-            <img src="../images/logo.png" alt="" class="logo_img" />
+            <img src="../images/logo_icon.png" alt="" class="logo_img" />
             <div class="panel">
                 <p class="heading_main">iPropertyBatam Dashboard Login</p>
                 <form id="login-validate" action="processlogin.php" method="post">

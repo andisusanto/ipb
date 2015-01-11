@@ -33,7 +33,8 @@ if($pages >= 1){
         $paginate       = '</div><div>';
         $paginate       .= '<ul class="paginate row">';
         for($i = 1; $i<=$pages; $i++){
-                $paginate .= '<li><a href="#" class="paginate_click" id="'.$i.'-page">'.$i.'</a></li>';
+                $tmpActive = $page_number == $i ? " active" : "";
+                $paginate .= '<li><a href="#" class="paginate_click'.$tmpActive.'" id="'.$i.'-page">'.$i.'</a></li>';
         }
         $paginate .= '</ul></div>';
 }
@@ -46,7 +47,6 @@ echo $paginate;
                 var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 
                 $('.paginate_click').removeClass('active'); //remove any active class
                 $("#result").load("getLandCategoryItem.php", {'page':(page_num)}, function(){});
-                $(this).addClass('active'); //add active class to currently clicked element (style purpose)
                 return false; //prevent going to herf link
         });     
 </script>

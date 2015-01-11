@@ -33,6 +33,7 @@ src: local('Myriad Pro Regular'), url('../fonts/MYRIADPRO-REGULAR.woff') format(
 .language {
 	padding: 5px;
 	font-weight: bold;
+	font-family: "Tahoma"
 }
 .language a:link, .language a:visited {
 	text-decoration: none;
