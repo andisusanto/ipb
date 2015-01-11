@@ -95,56 +95,15 @@ include('checklanguage.php');
 								</ul>
 							</div>
 						</div>
-						<div class="row pagination_tabs_container" id="results">
-						<!--<div class="row pagination_tabs_container">	
-							<div id="tabs_all">ALL</div>
-							<div id="tabs_secondary">SECONDARY</div>
-							<div id="tabs_rent">RENT</div>
-							<div id="tabs_land">LAND</div>-->
+						<div class="row pagination_tabs_container">	
+							<div id="tabs_all"></div>
+							<div id="tabs_secondary"></div>
+							<div id="tabs_rent"></div>
+							<div id="tabs_land"></div>
 						</div>
 						
 					</div>
-					<?php 
-							$Conn = Connection::get_DefaultConnection();
-							$Query = "
-								SELECT COUNT(Id) FROM 
-								(SELECT SecondaryProperty.Id, Title, Price, Bathroom, Bedroom, Currency.Symbol, 'secondary_property' AS Category
-									FROM SecondaryProperty
-									INNER JOIN Currency ON Currency.Id = SecondaryProperty.Currency
-									WHERE SecondaryProperty.Active = 1
-
-									UNION ALL
-
-									SELECT RentProperty.Id, Title, Price, Bathroom, Bedroom, Currency.Symbol, 'rent_property' AS Category
-									FROM RentProperty
-									INNER JOIN Currency ON Currency.Id = RentProperty.Currency
-									WHERE RentProperty.Active = 1
-
-									UNION ALL
-
-									SELECT Land.Id, Title, Price, 0 AS Bathroom, 0 AS Bedroom, Currency.Symbol, 'land_for_sale' AS Category
-									FROM Land
-									INNER JOIN Currency ON Currency.Id = Land.Currency
-									WHERE Land.Active = 1
-								 ) AS tmpTable
-								";
-							$results = mysqli_query($Conn, $Query);
-							$get_total_rows = mysqli_fetch_array($results); //total records
-							$item_per_page = 8;
-							$pages = ceil($get_total_rows[0]/$item_per_page);	
-							
-							if($pages >= 1)
-								{
-									$paginate	= '';
-									$paginate	.= '<ul class="paginate row">';
-									for($i = 1; $i<=$pages; $i++)
-									{
-										$paginate .= '<li><a href="#" class="paginate_click" id="'.$i.'-page">'.$i.'</a></li>';
-									}
-									$paginate .= '</ul>';
-								}
-							echo $paginate;
-						?>
+					
 				</div>
 
 				<div class="row">
@@ -153,11 +112,13 @@ include('checklanguage.php');
 							$Newss = News::LoadCollection($Conn, 'Active = 1', 'NewsDate DESC', 1, 1);
 							foreach ($Newss as $News) {
 								echo '
-									<div class="main_news">
-										<div><img src="img.php?src=News/'.$News->ImageName.'&w=300""></div>
-										<div class="title">'.$News->Title.'</div>
-										<div class="description">'.substr($News->Description, 0, 500).' ...</div>
-									</div>
+									<a href="newsdetail.php?Id='.$News->get_Id().'">
+										<div class="main_news">
+											<div><img src="img.php?src=News/'.$News->ImageName.'&w=300""></div>
+											<div class="title">'.$News->Title.'</div>
+											<div class="description">'.$News->NewsDate.'<br>'.substr($News->Description, 0, 500).' ...</div>
+										</div>
+									</a>
 								';
 							}
 						?>
@@ -167,13 +128,15 @@ include('checklanguage.php');
 								$Newss = News::LoadCollection($Conn, 'Active = 1', 'NewsDate DESC LIMIT 1, 4');
 								foreach ($Newss as $News) {
 									echo '
-										<div class="news_list">
-											<div class="news_list_img"><img src="img.php?src=News/'.$News->ImageName.'&w=100""></div>
-											<div class="news_list_detail">
-												<div class="title">'.$News->Title.'</div>
-												<div class="description">'.substr($News->Description, 0, 50).' ...</div>
+										<a href="newsdetail.php?Id='.$News->get_Id().'">
+											<div class="news_list">
+												<div class="news_list_img"><img src="img.php?src=News/'.$News->ImageName.'&w=100""></div>
+												<div class="news_list_detail">
+													<div class="title">'.$News->Title.'</div>
+													<div class="description">'.$News->NewsDate.'<br>'.substr($News->Description, 0, 50).' ...</div>
+												</div>
 											</div>
-										</div>
+										</a>
 									';
 								}
 							?>
@@ -239,19 +202,11 @@ include('checklanguage.php');
 			    });
 			});
 			
-			$("#results").load("getMixedCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
+			$("#tabs_all").load("getMixedCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
+			$("#tabs_secondary").load("getSecondaryCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
+			$("#tabs_rent").load("getRentCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
+			$("#tabs_land").load("getLandCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
 			
-			$(".paginate_click").click(function (e) {
-				var clicked_id = $(this).attr("id").split("-"); //ID of clicked element, split() to get page number.
-				var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 
-				$('.paginate_click').removeClass('active'); //remove any active class
-				$("#results").load("getMixedCategoryItem.php", {'page':(page_num)}, function(){
-
-				});
-				$(this).addClass('active'); //add active class to currently clicked element (style purpose)
-				return false; //prevent going to herf link
-			});	
-
 			$(".btnlanguage").click(function(){
 				$("input[name=Language]").val($(this).attr('name'));
 				$("input[name=ReturnURL]").val(document.URL);

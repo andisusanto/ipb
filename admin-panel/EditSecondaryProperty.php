@@ -86,8 +86,8 @@ $Title = $SecondaryProperty->Title;
                                 <h4><a href="SecondaryProperty.php" class="btn btn-inverse btn-mini">Back to SecondaryProperty</a></h4>
                             </div>
                             <div class="w-box-content">
-                                <form id="validate_field_types" method="post" action="ProcessAddSecondaryProperty.php" enctype="multipart/form-data">
-	                                
+                                <form id="validate_field_types" method="post" action="ProcessEditSecondaryProperty.php" enctype="multipart/form-data">
+	                                <input type="hidden" name="Id" value="<?php echo $Id; ?>">
                                     <div class="formSep">
                                         <label class="req">Title</label>
                                         <input required class="span10" type="text" name="Title" id="Title" value="<?php echo $Title; ?>" />

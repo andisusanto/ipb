@@ -11,11 +11,11 @@
   $LangSpecification = 'Specification';
   $LangFeaturedProperty = 'Featured Property';
   $LangFindPropertyBatam = 'Find Property Batam';
-  $LangSearchCategory = 'Select Category Batam';
-  $LangSearchLocation = 'Select Location Batam';
+  $LangSearchCategory = 'Category Batam';
+  $LangSearchLocation = 'Location Batam';
   $LangSearchBedroom = 'Bedroom';
   $LangSearchBathroom = 'Bathroom';
-  $LangSearchCurrency = 'Select Currency';
+  $LangSearchCurrency = 'Currency';
   $LangSearchMinPrice = 'Min Price';
   $LangSearchMaxPrice = 'Max Price';
 ?>

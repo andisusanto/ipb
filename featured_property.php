@@ -64,6 +64,39 @@ $category = isset($_GET['cat']) ? $_GET['cat'] : '';
 									}
 							}
 							elseif($category == 2){
+								echo '<div>
+							<img src="images/banners/banner01.jpg" width="190" height="150">
+							<div class="featured_property_title">Royal Grande</div>
+							<div class="featured_property_detail">
+								<div class="price">Rp. 2.000.000.000</div>
+								<div class="bedroom"><img src="images/bedroom_symbol.png"> 2</div>
+								<div class="bathroom"><img src="images/bathroom_symbol.png"> 3</div>
+							</div>
+						</div><div>
+							<img src="images/banners/banner01.jpg" width="190" height="150">
+							<div class="featured_property_title">Royal Grande</div>
+							<div class="featured_property_detail">
+								<div class="price">Rp. 2.000.000.000</div>
+								<div class="bedroom"><img src="images/bedroom_symbol.png"> 2</div>
+								<div class="bathroom"><img src="images/bathroom_symbol.png"> 3</div>
+							</div>
+						</div><div>
+							<img src="images/banners/banner01.jpg" width="190" height="150">
+							<div class="featured_property_title">Royal Grande</div>
+							<div class="featured_property_detail">
+								<div class="price">Rp. 2.000.000.000</div>
+								<div class="bedroom"><img src="images/bedroom_symbol.png"> 2</div>
+								<div class="bathroom"><img src="images/bathroom_symbol.png"> 3</div>
+							</div>
+						</div><div>
+							<img src="images/banners/banner01.jpg" width="190" height="150">
+							<div class="featured_property_title">Royal Grande</div>
+							<div class="featured_property_detail">
+								<div class="price">Rp. 2.000.000.000</div>
+								<div class="bedroom"><img src="images/bedroom_symbol.png"> 2</div>
+								<div class="bathroom"><img src="images/bathroom_symbol.png"> 3</div>
+							</div>
+						</div>';
 								$Conn = Connection::get_DefaultConnection();
 								$RentPropertys = RentProperty::LoadCollection($Conn, "Active = 1 AND Featured = 1 AND Marketing = ".$UserId);
 								foreach ($RentPropertys as $RentProperty) {

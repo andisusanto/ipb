@@ -4,7 +4,7 @@
 						<form id='frmLanguage' method='post' action='process_change_language.php'>
 							<input type="hidden" name='ReturnURL' />
 							<input type="hidden" name='Language' />
-							<a class='btnlanguage' href='#' name='EN'>EN</a> | <a class='btnlanguage' href='#' name='ID'>ID</a>
+							Languages : <a class='btnlanguage' href='#' name='EN'>EN</a> | <a class='btnlanguage' href='#' name='ID'>ID</a>
 						</form>
 					</div>  
 				</div>

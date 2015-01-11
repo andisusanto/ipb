@@ -212,7 +212,7 @@ $RentPropertyId = $_GET['Id'];
 				'autoStart':true
 			});
 
-			$('.related_property_container').slick({
+			$('.featured_property_container').slick({
 				  slidesToShow: 4,
 				  slidesToScroll: 1,
 				  autoplay: true,

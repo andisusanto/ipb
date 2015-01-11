@@ -42,7 +42,7 @@ $category = isset($_GET['cat']) ? $_GET['cat'] : '';
 								</div>
 								<div class="row search_component">
 									<select name="Location" required >
-										<option value="" default selected><?php echo $LangSearchCategory ?></option>
+										<option value="" default selected><?php echo $LangSearchLocation ?></option>
 										<option value="0">Any Location</option>
 										<?php 
 											$Conn = Connection::get_DefaultConnection();
