@@ -49,7 +49,7 @@ echo $paginate;
                 var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 
                 $('.paginate_click').removeClass('active'); //remove any active class
                 $("#result").load("getSecondaryCategoryItem.php", {'page':(page_num)}, function(){});
-                document.getElementById(#tmpId).addClass('active'); //add active class to currently clicked element (style purpose)
+                document.getElementById(tmpId).addClass('active'); //add active class to currently clicked element (style purpose)
                 return false; //prevent going to herf link
         });     
 </script>
