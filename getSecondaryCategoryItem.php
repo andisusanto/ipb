@@ -47,7 +47,7 @@ echo $paginate;
                 var clicked_id = $(this).attr("id").split("-"); //ID of clicked element, split() to get page number.
                 var page_num = parseInt(clicked_id[0]); //clicked_id[0] holds the page number we need 
                 $('.paginate_click').removeClass('active'); //remove any active class
-                $("#tabs_secondary").load("getSecondaryCategoryItem.php", {'page':(page_num)}, function(){});
+                $("#result").load("getSecondaryCategoryItem.php", {'page':(page_num)}, function(){});
                 $(this).addClass('active'); //add active class to currently clicked element (style purpose)
                 return false; //prevent going to herf link
         });     

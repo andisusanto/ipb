@@ -88,18 +88,16 @@ include('checklanguage.php');
 							<div class="title"><?php echo $LangLatestProperty ?></div>
 							<div class="tabs">
 								<ul>
-								    <li><a href="#tabs_all">All</a></li>
-								    <li><a href="#tabs_secondary">Secondary</a></li>
-								    <li><a href="#tabs_rent">Rent</a></li>
-								    <li><a href="#tabs_land">Land</a></li>
+								    <li><a href="#" id="tabs_all" class="btntab">All</a></li>
+								    <li><a href="#" id="tabs_secondary" class="btntab">Secondary</a></li>
+								    <li><a href="#" id="tabs_rent" class="btntab">Rent</a></li>
+								    <li><a href="#" id="tabs_land" class="btntab">Land</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="row pagination_tabs_container">	
-							<div id="tabs_all"></div>
-							<div id="tabs_secondary"></div>
-							<div id="tabs_rent"></div>
-							<div id="tabs_land"></div>
+							<div id="result"></div>
+							
 						</div>
 						
 					</div>
@@ -196,17 +194,27 @@ include('checklanguage.php');
 			  speed: 750
 			});
 
-			$(function() {
-			    $( ".pagination" ).tabs({ 
-			    	active: 0
-			    });
-			});
-			
-			$("#tabs_all").load("getMixedCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
-			$("#tabs_secondary").load("getSecondaryCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
-			$("#tabs_rent").load("getRentCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
-			$("#tabs_land").load("getLandCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
-			
+			$("#result").load("getMixedCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
+			$('#tabs_secondary').click(function(){
+				$("#result").load("getSecondaryCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
+				$('.btntab').removeClass('active');
+				$(this).addClass('active');
+			})
+			$('#tabs_all').click(function(){
+				$("#result").load("getMixedCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
+				$('.btntab').removeClass('active');
+				$(this).addClass('active');
+			})
+			$('#tabs_rent').click(function(){
+				$("#result").load("getRentCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
+				$('.btntab').removeClass('active');
+				$(this).addClass('active');
+			})
+			$('#tabs_land').click(function(){
+				$("#result").load("getLandCategoryItem.php", {'page':1}, function() {$("#1-page").addClass('active');});  //initial page number to load
+				$('.btntab').removeClass('active');
+				$(this).addClass('active');
+			})
 			$(".btnlanguage").click(function(){
 				$("input[name=Language]").val($(this).attr('name'));
 				$("input[name=ReturnURL]").val(document.URL);
